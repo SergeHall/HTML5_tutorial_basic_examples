@@ -1,0 +1,2808 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html"
+      xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Мои первые шаги в WEB">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="Serge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        h1 {
+            color: dodgerblue;
+            border-width: thick;
+            border-style: double;
+            text-align: center
+        }
+
+        h2 {
+            color: rosybrown;
+            border-width: thin;
+            border-style: dashed;
+            text-align: center
+        }
+        h3 {
+            color: black;
+        }
+        h4 {
+            color: black;
+        }
+        h5 {
+            color:green;
+            text-align: center
+        }
+        #special_a:link {
+            color: green;
+            background-color: transparent;
+            text-decoration: none;
+        }
+        #special_a:visited {
+            color: pink;
+            background-color: transparent;
+            text-decoration: none;
+        }
+        #special_a:hover {
+            color: red;
+            background-color: transparent;
+            text-decoration: underline;
+        }
+        #special_a:active {
+            color: yellow;
+            background-color: transparent;
+            text-decoration: underline;
+        }
+        #button_a:link, a:visited {
+            background-color: cornflowerblue;
+            color: white;
+            padding: 15px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        #button_a:hover, #button_a:active {
+            background-color: dodgerblue;
+        }
+        /* Этот стиль задает ширину всех изображений 100%: */
+        #special_img {
+            width:100%;
+        }
+        #special_img_2 {
+            width:100%;
+        }
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+        table#t01 {
+            width: 100%;
+            background-color: #f1f1c1;
+        }
+        tr#tr01:nth-child(even) {
+            background-color: bisque;
+        }
+        ul#ul01 li::before {
+            content: "\2022";
+            color: red;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        ul#ul02 {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #787878;
+        }
+
+        li#li02, li#li03, li#li04, li#li05 {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 16px;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            background-color: #111111;
+        }
+        .city {
+            background-color: black;
+            color: white;
+            margin: 20px;
+            padding: 20px;
+        }
+        span.note {
+            font-size: 120%;
+            color: red;
+        }
+        .city_02 {
+            background-color: tomato;
+            color: white;
+            padding: 10px;
+        }
+        .city_03 {
+            background-color: tomato;
+            color: white;
+            padding: 10px;
+        }
+
+        .main_03 {
+            text-align: center;
+        }
+        .city_04 {
+            background-color: tomato;
+            color: white;
+            padding: 10px;
+        }
+        #myHeader {
+            background-color: lightblue;
+            color: black;
+            padding: 40px;
+            text-align: center;
+        }
+        /* Стиль элемента с ID "myHeader" */
+        #myHeader_04 {
+            background-color: lightblue;
+            color: black;
+            padding: 40px;
+            text-align: center;
+        }
+
+        /* Все элементы с именем класса "city" */
+        .city_04 {
+            background-color: tomato;
+            color: white;
+            padding: 10px;
+        }
+        div.container {
+            width: 100%;
+            border: 1px solid gray;
+        }
+
+        header#Floatlayout_h, footer#Floatlayout_f {
+            padding: 1em;
+            color: white;
+            background-color: sandybrown;
+            clear: left;
+            text-align: center;
+        }
+
+        nav {
+            float: left;
+            max-width: 160px;
+            margin: 0;
+            padding: 1em;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul a {
+            text-decoration: none;
+            background-color: sandybrown
+        }
+
+        article {
+            margin-left: 170px;
+            border-left: 1px solid gray;
+            padding: 1em;
+            overflow: hidden;
+
+        }
+        .flex-container {
+            display: -webkit-flex;
+            display: flex;
+            -webkit-flex-flow: row wrap;
+            flex-flow: row wrap;
+            text-align: center;
+        }
+
+
+        .flex-container > * {
+                padding: 15px;
+                -webkit-flex: 1 100%;
+                flex: 1 100%;
+        }
+
+        .article {
+            text-align: left;
+        }
+        header#flexboxlayout_h {background: black;color:white;}
+        footer#flexboxlayout_f {background: #aaa;color:white;}
+        .nav {background:#eee;}
+
+        .nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .nav ul a {
+            text-decoration: none;
+        }
+
+        @media all and (min-width: 768px) {
+            .nav {text-align:left;-webkit-flex: 1 auto;flex:1 auto;-webkit-order:1;order:1;}
+            .article {-webkit-flex:5 0;flex:5 0;-webkit-order:2;order:2;}
+            footer {-webkit-order:3;order:3;}
+        }
+        * {
+          box-sizing: border-box;
+        }
+        .menu {
+          float: left;
+          width: 20%;
+        }
+        .menuitem {
+          padding: 8px;
+          margin-top: 7px;
+          border-bottom: 1px solid #f1f1f1;
+        }
+        .main {
+          float: left;
+          width: 60%;
+          padding: 0 20px;
+          overflow: hidden;
+        }
+        .right {
+          background-color: lightblue;
+          float: left;
+          width: 20%;
+          padding: 10px 15px;
+          margin-top: 7px;
+        }
+
+        @media only screen and (max-width:800px) {
+          /* Для планшетов: */
+          .main {
+            width: 80%;
+            padding: 0;
+          }
+          .right {
+            width: 100%;
+          }
+        }
+        @media only screen and (max-width:500px) {
+          /* Для мобильных телефонов: */
+          .menu, .main, .right {
+            width: 100%;
+          }
+        }
+        code {
+            font-size: 16px;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        .menu {
+            float:left;
+            width:20%;
+            text-align:center;
+        }
+        .menu a {
+            background-color:#e5e5e5;
+            padding:8px;
+            margin-top:7px;
+            display:block;
+            width:100%;
+            color:black;
+        }
+        .main {
+            float:left;
+            width:60%;
+            padding:0 20px;
+        }
+        .right {
+            background-color:#e5e5e5;
+            float:left;
+            width:20%;
+            padding:15px;
+            margin-top:7px;
+            text-align:center;
+        }
+
+            @media only screen and (max-width:620px) {
+            /* Для мобильных телефонов: */
+            .menu, .main, .right {
+            width:100%;
+            }
+        }
+
+    </style>
+    <script>
+        function myFunction_head() {
+        document.getElementById("demo_head").innerHTML = "Привет JavaScript!";
+        document.getElementById("demo_head").style.color = "red";
+        }
+    </script>
+
+    <title>Title</title>
+
+</head>
+
+<body>
+
+    <h1>HTML Basic Examples</h1>
+    <h1>HTML Attributes</h1>
+        <h2>Краткое содержание главы</h2>
+            <p>Все HTML элементы могут иметь атрибуты<br>
+            Атрибут href в теге a указывает URL адрес страницы, на которую переходит ссылка<br>
+            Атрибут src в теге img указывает путь к отображаемому изображению<br>
+            Атрибут width и height в теге img предоставьте информацию о размере изображений<br>
+            Атрибут alt в теге img предоставляет альтернативный текст для изображения<br>
+            Атрибут style используется для добавления стилей к элементу, таких как цвет, шрифт, размер и многое другое<br>
+            Атрибут lang в теге html тег объявляет язык веб страницы<br>
+            Атрибут title определяет некоторую дополнительную информацию об элементе<br>
+            </p>
+
+        <h3>Attribute href</h3>
+        <hr>
+            <p>Тег a определяет гиперссылку. Атрибут href указывает URL адрес
+                страницы, на которую переходит ссылка:
+            </p>
+
+            <p>HTML ссылки определяются тегом а. Адрес ссылки указывается в атрибуте href:</p>
+
+            <a href="https://www.sergioartg.com">Это ссылка to my site</a>
+
+        <h3>Attribute src</h3>
+        <hr>
+            <p>Тег img используется для встраивания изображения в HTML страницу.
+                Атрибут src указывает путь к отображаемому изображению:
+            </p>
+            <p>HTML изображения определяются с помощью тега img, а имя файла
+                источника изображения указывается в атрибуте src:
+            </p>
+
+            <img src="imgs/iam_mini.jpg" height="450" width="300"
+            alt="pic"/>
+
+        <h3>HTML Атрибут высота и ширина</h3>
+        <hr>
+            <p>Тег img также должен содержать атрибуты width и height,
+                который определяет ширину и высоту изображения (в пикселях):
+            </p>
+            <p>Изображения в HTML имеют набор атрибутов размера, который определяет
+                ширину и высоту изображения:
+            </p>
+
+            <img src="imgs/iam_mini.jpg" height="450" width="300"
+            alt="pic"/>
+
+        <h3>HTML Атрибут alt</h3>
+        <hr>
+            <p>Обязательный атрибут alt требуется для тега img указывает альтернативный
+                текст для изображения, если изображение по какой-либо причине не может
+                быть отображено. Это может быть связано с медленным соединением или ошибкой в системе.
+                Атрибут src, используется пользователем для чтения программы с экрана.
+            </p>
+            <p>Атрибут alt должен отражать содержимое изображения, чтобы пользователи, которые не видят изображение, понимали, что оно содержится:</p>
+
+            <img src="imgs/iam_mini.jpg" alt="I'm on the beach" height="450"
+                 width="300"/>
+
+        <h3>HTML Атрибут style</h3>
+        <hr>
+            <p>Атрибут style используется для добавления стилей к элементу, таких как цвет, шрифт, размер и т. д.</p>
+            <p>Атрибут style используется для указания стиля элемента, например color:</p>
+
+            <p style="color:red">Это параграф.</p>
+
+        <h3>HTML Атрибут lang</h3>
+        <hr>
+            <p>Всегда подключайте атрибут lang внутри тега html, чтобы объявить язык веб страницы.
+                Это делается для того, чтобы помочь поисковым системам и браузерам.
+                В следующем примере в качестве языка указывается английский язык:
+                html lang="en"
+            </p>
+
+        <h3>HTML Атрибут title</h3>
+        <hr>
+            <p>Атрибут title определяет некоторую дополнительную информацию об элементе.
+                Значение атрибута title будет отображаться в виде всплывающей подсказки при наведении курсора мыши на элемент:
+                Стандарт HTML не требует имен атрибутов в нижнем регистре.
+                Атрибут title (и все остальные атрибуты) могут быть записаны в верхнем или нижнем регистре, например title или TITLE.
+                Однако консорциум W3C рекомендует строчные атрибуты в HTML и требует
+                строчные атрибуты для более строгих типов документов, таких как XHTML.
+            </p>
+            <p>p title="Я подсказка">Это параграф.</p>
+
+        <h3>HTML Атрибут одинарные или двойные кавычки</h3>
+        <hr>
+
+            <p>В некоторых ситуациях, когда само значение атрибута содержит двойные кавычки, необходимо использовать одинарные кавычки:</p>
+            <p style="color:red;">Наведите курсор мыши на абзацы ниже, чтобы
+                увидеть эффект:</p>
+
+            <p title='Джон "Дробовик" Нельсон'>Джон с двойными кавычками</p>
+            <p title="Джон 'Дробовик' Нельсон">Джон с одинарными кавычками</p>
+
+
+    <h1>HTML Styles</h1>
+        <h2>Краткое содержание</h2>
+        <p>Использование атрибута style для стиля элементов HTML<br>
+            Использование background-color для цвета фона<br>
+            Использование color для цвета текста<br>
+            Использование font-family для шрифта текста<br>
+            Использование font-size для размера текста<br>
+            Использование text-align для выравнивания текста
+        </p>
+        <h3>HTML styles</h3>
+        <hr>
+
+            <p>tagname style="property:value;"<br>
+            property - свойство CSS. value - значение CSS.</p>
+
+            <p>Я нормальный</p>
+            <p style="color:red;">Я красный</p>
+            <p style="color:blue;">Я синий</p>
+            <p style="font-size:50px;">Я большой</p>
+
+        <h3>HTML background</h3>
+        <hr>
+
+            <p style="background-color:powderblue;">Это параграф powderblue.</p>
+            <p style="background-color:tomato;">Это параграф tomato.</p>
+
+        <h3>HTML Color</h3>
+        <hr>
+
+            <p style="color:blue;">Цвет текста</p>
+            <p style="color:red;">Это параграф.</p>
+
+        <h3>HTML font-family</h3>
+        <hr>
+
+            <p style="font-family:verdana,serif;">Шрифт текста</p>
+            <p style="font-family:Courier,serif;">Это параграф.</p>
+
+        <h3>HTML font-size</h3>
+        <hr>
+
+            <p style="font-size:200%;">Размер текста</p>
+            <p style="font-size:160%;">Это параграф.</p>
+
+        <h3>HTML text-align</h3>
+        <hr>
+
+            <p style="text-align:left;">Выравнивание текста</p>
+            <p>CSS свойство text-align определяет горизонтальное выравнивание текста для HTML элемента:</p>
+            <p style="text-align:center;">Параграф по центру.</p>
+
+
+    <h1>HTML Text Formatting</h1>
+        <h2>Краткое содержание главы</h2>
+        <p>Элементы форматирования предназначены для отображения специальных видов текста:<br>
+            - <b>b</b> - Жирный текст<br>
+            - strong - Важный текст<br>
+            - i - текст Курсив (наклонный)<br>
+            - em - текст Акцентирует внимание (наклонный)<br>
+            - mark - Маркерованный текст<br>
+            - small - Небольшой текст<br>
+            - del - Удаленный (зачеркнутый) текст<br>
+            - ins - Вставленный (добавить) текст<br>
+            - sub - Подстрочный текст<br>
+            - sup - Надстрочный текст<br>
+        </p>
+        <h3>HTML Форматирование b</h3>
+        <p>Этот текст нормальный.</p>
+        <p><b>Этот текст жирный.</b></p>
+
+        <h3>HTML Форматирование strong</h3>
+        <p>Этот текст нормальный.</p>
+        <p><strong>Этот текст строгий.</strong></p>
+
+        <h3>HTML Форматирование i and em</h3>
+        <p>Этот текст нормальный.</p>
+        <p><i>Этот текст курсив.</i></p>
+        <p>Этот текст нормальный.</p>
+        <p><em>Этот текст подчеркнутый.</em></p>
+
+        <h3>HTML Форматирование small</h3>
+        <p>HTML <small>Маленький</small> текст</p>
+
+        <h3>HTML Форматирование mark</h3>
+        <p><mark>Маркированный</mark> текст</p>
+
+        <h3>HTML Форматирование del</h3>
+        <p>Элемент del представляет собой удаленный текст.</p>
+        <p>Мой любимый цвет <del>синий</del> красный.</p>
+
+        <h3>HTML Форматирование ins</h3>
+        <p>Элемент ins представляет вставленный (добавленный) текст.</p>
+        <p>Мой любимый <ins>цвет</ins> красный.</p>
+
+        <h3>HTML Форматирование sub</h3>
+        <p>Подстрочный текст</p>
+        <p>Это <sub>подстрочный</sub> текст.</p>
+
+        <h3>HTML Форматирование sup</h3>
+        <p>Это <sup>надстрочный</sup> текст.</p>
+
+        <h3>HTML кавычки q</h3>
+        <p> Я так <q>крут</q> </p>
+
+    <h1>HTML Quoting</h1>
+        <h2>Краткое содержание главы</h2>
+        <p>HTML elements Quoting (Цитирование):<br>
+            - blockquote<br>
+            - q<br>
+            - abbr<br>
+            - address<br>
+            - cite<br>
+            - bdo<br>
+        </p>
+
+
+        <h3>HTML Форматирование blockquote</h3>
+            <p>Браузеры обычно делают отступы в элементах blockquote.</p>
+            <blockquote cite="https://www.sergioartg.com/about-contact">
+              Sergio is a fashion photographer in Los Angeles.
+              I am capturing fashion photos, portfolios for actors, portraits, beauty.
+              I will save these moments for you.
+            </blockquote>
+
+        <h3>HTML Форматирование q</h3>
+            <p>Короткое цитирование</p>
+            <p>Браузеры обычно вставляют кавычки вокруг элемента q.</p>
+            <p>Цель WWF -: <q>Постройте будущее, в котором люди будут жить в гармонии с природой.</q></p>
+
+        <h3>HTML Форматирование аббревиатуры</h3>
+            <p>HTML аббревиатура или акроним</p>
+            <p>Организация <abbr title="Всемирная организация здравоохранения">ВОЗ</abbr> была основана в 1948 году.</p>
+            <p>Разметка аббревиатур может дать полезную информацию браузерам, переводческим системам и поисковым системам.</p>
+
+        <h3>HTML Форматирование address</h3>
+
+            <p>Информация об авторе</p>
+            <p>Элемент HTML address определяет контактную информацию (автора/владельца) документа или статьи.</p>
+            <address>
+            Автор: Щипунов Андрей.<br>
+            Посетите сайт:<br>
+            sergioartg.com<br>
+            Los Angeles<br>
+            USA
+            </address>
+
+        <h3>HTML Форматирование cite</h3>
+            <p>Название работ</p>
+            <p>Элемент HTML cite определяет название работы.</p>
+            <p>Браузеры обычно отображают элементы cite курсивом.</p>
+            <img src="imgs/img_the_scream.jpg" width="220" height="277" alt="The Scream">
+            <p><cite>Крик</cite> Эдвард Мунк. Написана в 1893.</p>
+
+        <h3>HTML Форматирование bdo</h3>
+            <p>Направление текста</p>
+            <p>Если ваш браузер поддерживает двунаправленное переопределение (bdo), следующая строка будет записана справа налево (rtl):</p>
+            <bdo dir="rtl">Эта строка будет написана справа налево</bdo>
+
+    <h1>HTML Comments</h1>
+        <p>HTML Комментарий</p>
+        <!-- Это комментарий -->
+        <p>Это параграф.</p>
+        <!-- Комментарии не отображаются в браузере -->
+        <p>HTML Комментарий отладка смотри код</p>
+        <!-- Не отображать это в данный момент
+        <img border="0" src="pic_mountain.jpg" alt="Гора">
+        -->
+
+    <h1>HTML Color</h1>
+        <p>HTML Цвет задается с помощью предопределенных имен цвета или значений
+            RGB, HEX, HSL, RGBA, HSLA.
+        </p>
+        <h3>Color names</h3>
+        <h3 style="background-color:Tomato;">Tomato</h3>
+        <h3 style="background-color:Orange;">Orange</h3>
+        <h3 style="background-color:DodgerBlue;">DodgerBlue</h3>
+        <h3 style="background-color:MediumSeaGreen;">MediumSeaGreen</h3>
+        <h3 style="background-color:Gray;">Gray</h3>
+        <h3 style="background-color:SlateBlue;">SlateBlue</h3>
+        <h3 style="background-color:Violet;">Violet</h3>
+        <h3 style="background-color:LightGray;">LightGray</h3>
+
+        <h3>HTML Атрибут Цвет фона</h3>
+            <h2 style="background-color:DodgerBlue;">Привет мир</h2>
+            <p style="background-color:Tomato;">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+            Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+            </p>
+
+        <h3>HTML Цвет текста</h3>
+            <h4 style="color:Tomato;">Привет мир</h4>
+            <p style="color:DodgerBlue;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+            <p style="color:MediumSeaGreen;">Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+
+    <h3>HTML Цвет границ</h3>
+        <h4 style="border: 2px solid Tomato;">Привет мир</h4>
+        <h4 style="border: 2px solid DodgerBlue;">Привет мир</h4>
+        <h4 style="border: 2px solid Violet;">Привет мир</h4>
+
+    <h3>HTML Цвет значение</h3>
+        <p>То же, что и название цвета "Tomato":</p>
+        <h4 style="background-color:rgb(255, 99, 71);">rgb(255, 99, 71)</h4>
+        <h4 style="background-color:#ff6347;">#ff6347</h4>
+        <h4 style="background-color:hsl(9, 100%, 64%);">hsl(9, 100%, 64%)</h4>
+        <p>То же, что и название цвета "Tomato", но 50% прозрачно:</p>
+        <h4 style="background-color:rgba(255, 99, 71, 0.5);">rgba(255, 99,
+            71, 0.5)</h4>
+        <h4 style="background-color:hsla(9, 100%, 64%, 0.5);">hsla(9, 100%,
+            64%, 0.5)</h4>
+        <p>В дополнение к предопределенным именам цветов, цвета могут быть указаны с использованием RGB, HEX, HSL или даже прозрачных цветов с использованием значений цвета RGBA или HSLA.</p>
+
+    <h3>HTML Цвет RGB </h3>
+        <h4 style="background-color:rgb(255, 0, 0);">rgb(255, 0, 0)</h4>
+        <h4 style="background-color:rgb(0, 0, 255);">rgb(0, 0, 255)</h4>
+        <h4 style="background-color:rgb(60, 179, 113);">rgb(60, 179, 113)</h4>
+        <h4 style="background-color:rgb(238, 130, 238);">rgb(238, 130, 238)</h4>
+        <h4 style="background-color:rgb(255, 165, 0);">rgb(255, 165, 0)</h4>
+        <h4 style="background-color:rgb(106, 90, 205);">rgb(106, 90, 205)</h4>
+        <p>В HTML можно указать цвета, используя значения RGB.</p>
+
+    <h3>HTML Цвет RGB оттенок серого</h3>
+        <h4 style="background-color:rgb(0, 0, 0);">rgb(0, 0, 0)</h4>
+        <h4 style="background-color:rgb(60, 60, 60);">rgb(60, 60, 60)</h4>
+        <h4 style="background-color:rgb(120, 120, 120);">rgb(120, 120, 120)</h4>
+        <h4 style="background-color:rgb(180, 180, 180);">rgb(180, 180, 180)</h4>
+        <h4 style="background-color:rgb(240, 240, 240);">rgb(240, 240, 240)</h4>
+        <h4 style="background-color:rgb(255, 255, 255);">rgb(255, 255, 255)</h4>
+        <p>Используя равные значения для красного, зеленого и синего, вы получите разные оттенки серого.</p>
+
+    <h3>HTML Цвет RGBA</h3>
+        <p>Значения цвета RGBA - это расширение значений цвета RGB с альфа-каналом , который определяет непрозрачность для цвета.
+            Значение цвета RGBA задается с помощью::
+            rgba(red, green, blue, alpha)
+        </p>
+        <h4 style="background-color:rgba(255, 99, 71, 0);">rgba(255, 99, 71,
+            0)</h4>
+        <h4 style="background-color:rgba(255, 99, 71, 0.2);">rgba(255, 99,
+            71, 0.2)</h4>
+        <h4 style="background-color:rgba(255, 99, 71, 0.4);">rgba(255, 99,
+            71, 0.4)</h4>
+        <h4 style="background-color:rgba(255, 99, 71, 0.6);">rgba(255, 99,
+            71, 0.6)</h4>
+        <h4 style="background-color:rgba(255, 99, 71, 0.8);">rgba(255, 99,
+            71, 0.8)</h4>
+        <h4 style="background-color:rgba(255, 99, 71, 1);">rgba(255, 99, 71,
+            1)</h4>
+
+        <p>Вы можете сделать прозрачные цвета, используя значение цвета RGBA.</p>
+
+    <h3>HTML Цвет hex</h3>
+        <p>HEX значение цвета<br>
+            В HTML цвет может быть задан с помощью шестнадцатеричного значения в форме:<br>
+            #rrggbb<br>
+            Где rr (красный), gg (зеленый) и bb (синий) - шестнадцатеричные значения между 00 и ff (такие же, как десятичные 0-255).<br>
+            Например, #ff0000 отображается как красный, потому что красный имеет самое высокое значение (ff), а два других (зеленый и синий) имеют значение 00.<br>
+            Другой пример, #00ff00 отображается как зеленый, потому что зеленый имеет самое высокое значение (ff), а два других (красный и синий) имеют значение 00.<br>
+            Чтобы отобразить черный цвет, установите все цветовые параметры равными 00, например: #000000.<br>
+            Чтобы отобразить белый цвет, установите все цветовые параметры в ff, например: #ffffff.<br>
+            Поэкспериментируйте, смешивая шестнадцатеричные значения ниже:
+        </p>
+        <h4 style="background-color:#ff0000;">#ff0000</h4>
+        <h4 style="background-color:#0000ff;">#0000ff</h4>
+        <h4 style="background-color:#3cb371;">#3cb371</h4>
+        <h4 style="background-color:#ee82ee;">#ee82ee</h4>
+        <h4 style="background-color:#ffa500;">#ffa500</h4>
+        <h4 style="background-color:#6a5acd;">#6a5acd</h4>
+        <p>В HTML можно указать цвета, используя шестнадцатеричные значения цвета hex.</p>
+
+    <h3>HTML Цвет hex оттенок серого</h3>
+        <h4 style="background-color:#000000;">#000000</h4>
+        <h4 style="background-color:#3c3c3c;">#3c3c3c</h4>
+        <h4 style="background-color:#787878;">#787878</h4>
+        <h4 style="background-color:#b4b4b4;">#b4b4b4</h4>
+        <h4 style="background-color:#f0f0f0;">#f0f0f0</h4>
+        <h4 style="background-color:#ffffff;">#ffffff</h4>
+        <p>Используя равные значения для красного, зеленого и синего, вы получите разные оттенки серого.</p>
+
+    <h3>HTML Цвет HSL</h3>
+        <p>HSL значение цвета<br>
+        В HTML цвет может быть задан с помощью оттенка, насыщенности и яркости (HSL) в форме:<br>
+        hsl(hue, saturation, lightness)<br>
+        Hue - это градус на цветовом круге от 0 до 360. 0-красный, 120-зеленый, 240-синий.<br>
+        Saturation - это процентное значение, 0% означает оттенок серого, а 100% - полный цвет.<br>
+        Lightness - это также процентное значение, 0% - черное, а 100% - белое.<br>
+        Поэкспериментируйте, смешивая значения HSL ниже:
+        <h4 style="background-color:hsl(0, 100%, 50%);">hsl(0, 100%, 50%)</h4>
+        <h4 style="background-color:hsl(240, 100%, 50%);">hsl(240, 100%,
+            50%)</h4>
+        <h4 style="background-color:hsl(147, 50%, 47%);">hsl(147, 50%, 47%)</h4>
+        <h4 style="background-color:hsl(300, 76%, 72%);">hsl(300, 76%, 72%)</h4>
+        <h4 style="background-color:hsl(39, 100%, 50%);">hsl(39, 100%, 50%)</h4>
+        <h4 style="background-color:hsl(248, 53%, 58%);">hsl(248, 53%, 58%)</h4>
+        <p>В HTML можно указать цвета, используя значения HSL.</p>
+
+    <h3>HTML Цвет HSL насыщенность</h3>
+        <h4 style="background-color:hsl(0, 100%, 50%);">hsl(0, 100%, 50%)</h4>
+        <h4 style="background-color:hsl(0, 80%, 50%);">hsl(0, 80%, 50%)</h4>
+        <h4 style="background-color:hsl(0, 60%, 50%);">hsl(0, 60%, 50%)</h4>
+        <h4 style="background-color:hsl(0, 40%, 50%);">hsl(0, 40%, 50%)</h4>
+        <h4 style="background-color:hsl(0, 20%, 50%);">hsl(0, 20%, 50%)</h4>
+        <h4 style="background-color:hsl(0, 0%, 50%);">hsl(0, 0%, 50%)</h4>
+        <p>С HSL цвета, чем меньше насыщенность, тем меньше цвета. 0% полностью серого цвета.</p>
+
+    <h3>HTML Цвет
+        HSL Яркость цвета</h3>
+        <h4 style="background-color:hsl(0, 100%, 0%);">hsl(0, 100%, 0%)</h4>
+        <h4 style="background-color:hsl(0, 100%, 25%);">hsl(0, 100%, 25%)</h4>
+        <h4 style="background-color:hsl(0, 100%, 50%);">hsl(0, 100%, 50%)</h4>
+        <h4 style="background-color:hsl(0, 100%, 75%);">hsl(0, 100%, 75%)</h4>
+        <h4 style="background-color:hsl(0, 100%, 90%);">hsl(0, 100%, 90%)</h4>
+        <h4 style="background-color:hsl(0, 100%, 100%);">hsl(0, 100%, 100%)</h4>
+        <p>С цветами HSL, 0% легкости значит почернение, и 100 легкости значит побеление.</p>
+
+    <h3>HTML Цвет HSL оттенок серого</h3>
+        <h4 style="background-color:hsl(0, 0%, 0%);">hsl(0, 0%, 0%)</h4>
+        <h4 style="background-color:hsl(0, 0%, 24%);">hsl(0, 0%, 24%)</h4>
+        <h4 style="background-color:hsl(0, 0%, 47%);">hsl(0, 0%, 47%)</h4>
+        <h4 style="background-color:hsl(0, 0%, 71%);">hsl(0, 0%, 71%)</h4>
+        <h4 style="background-color:hsl(0, 0%, 94%);">hsl(0, 0%, 94%)</h4>
+        <h4 style="background-color:hsl(0, 0%, 100%);">hsl(0, 0%, 100%)</h4>
+        <p>С цветами HSL оттенки серого создаются путем установки насыщенности на 0% и регулировки яркости в соответствии с тем, насколько темным/светлым должен быть серый цвет.</p>
+
+    <h3>HTML Цвет HSLA </h3>
+        <h4 style="background-color:hsla(9, 100%, 64%, 0);">hsla(9, 100%,
+            64%, 0)</h4>
+        <h4 style="background-color:hsla(9, 100%, 64%, 0.2);">hsla(9, 100%,
+            64%, 0.2)</h4>
+        <h4 style="background-color:hsla(9, 100%, 64%, 0.4);">hsla(9, 100%,
+            64%, 0.4)</h4>
+        <h4 style="background-color:hsla(9, 100%, 64%, 0.6);">hsla(9, 100%,
+            64%, 0.6)</h4>
+        <h4 style="background-color:hsla(9, 100%, 64%, 0.8);">hsla(9, 100%,
+            64%, 0.8)</h4>
+        <h4 style="background-color:hsla(9, 100%, 64%, 1);">hsla(9, 100%,
+            64%, 1)</h4>
+        <p>Вы можете сделать прозрачные цвета, используя значение цвета HSLA.</p>
+
+    <h1>CSS - Cascading Style Sheets (Каскадные Таблицы Стилей).</h1>
+        <p>Краткое содержание:<br>
+            - Используйте HTML атрибут style для определения встроенного
+            стиля<br>
+            - Используйте HTML элемент style для определения внутреннего CSS<br>
+            - Используйте HTML элемент link для ссылки на внешний файл CSS<br>
+            - Используйте HTML элемент head для сохранения style и link
+            элементов<br>
+            - Используйте CSS свойство color для цвета текста<br>
+            - Используйте CSS свойство font-family для текста шрифтов<br>
+            - Используйте CSS свойство font-size для размера текста<br>
+            - Используйте CSS свойство border для границ<br>
+            - Используйте CSS свойство padding для пространства внутри
+            границы<br>
+            - Используйте CSS свойство margin для пространство снаружи
+            границы<br>
+        </p>
+        <p>Что такое CSS?<br>
+            Каскадные таблицы стилей (CSS) используются для форматирования макета веб страницы.
+            С помощью CSS вы можете управлять цветом, шрифтом, размером текста,
+            расстоянием между элементами, тем, как элементы расположены и выложены,
+            какие фоновые изображения или цвета фона будут использоваться, различными
+            дисплеями для разных устройств и размеров экрана и многое другое!<br>
+            Совет: Слово cascading означает, что стиль, примененный к родительскому элементу,
+            будет также применяться ко всем дочерним элементам внутри родительского элемента.
+            Таким образом, если вы установите цвет основного текста на "blue", все заголовки,
+            параграфа и другие текстовые элементы внутри тела также получат тот же цвет
+            (если вы не укажете что-то еще)!
+        </p>
+        <p>CSS описывает, как HTML элементы будут отображаться на экране, на бумаге, или в других средствах массовой информации.
+            CSS экономит много времени.<br>
+            Он может контролировать макет нескольких страниц одновременно.<br>
+            CSS может быть добавлен к элементам HTML 3 способами:<br>
+            Встроенный - с помощью атрибута style в HTML элементы<br>
+            Внешний - с помощью внешнего CSS файла<br>
+        </p>
+        <h3>HTML Встроенный CSS. Inline.</h3>
+            <h4 style="color:blue;">Это заголовок синий</h4>
+            <img src="imgs/inline_CSS.png" height="183" width="700"
+            alt="inLine"/>
+        <h3>HTML Внутренний CSS. Internal.</h3>
+            <p>
+                Внутренний CSS стиль используется для одной HTML страницы.
+                Внутренний CSS определяется в разделе head HTML страницы, в элементе style:
+                В следующем примере задается цвет текста всех элементов h1 (на этой странице)
+                до синего цвета, а цвет текста всех элементов p красный. Кроме того, страница
+                будет отображаться с помощью фона "powderblue":
+            </p>
+            <img src="imgs/internal_CSS.png" height="238" width="700"/>
+
+        <h3>HTML Наружный стиль CSS. External.</h3>
+            <p>Внешняя таблица стилей используется для нескольких HTML страниц. Чтобы использовать внешнюю таблицу стилей, нужно добавить ссылку на файл в разделе head HTML страницы:</p>
+            <img src="imgs/external_CSS.png" height="213" width="700"/>
+            <img src="imgs/img_styles_css.png" height="279" width="700"/>
+
+        <h3>CSS Colors, Fonts и Sizes</h3>
+            <p>Здесь мы продемонстрируем некоторые часто используемые свойства
+                CSS. Вы узнаете о них больше позже.<br>
+            CSS свойство color определяет цвет текста, который будет использоваться.<br>
+            CSS свойство font-family определяет семейство шрифтов, который будет использоваться.<br>
+            CSS свойство font-size определяет размер шрифта, который будет использоваться.
+            </p>
+
+        <h3>Свойство Border</h3>
+            <p>CSS свойство border определяет границы вокруг элемента HTML:
+            Совет: Вы можете определить границу почти для всех HTML элементов.<br>
+            border: 1px solid powderblue;</p>
+
+        <h3>Свойство Padding</h3>
+            <p>CSS свойство padding определяет отступ (пробел) между текстом и
+                рамкой:<br>
+            padding: 30px;
+            </p>
+
+        <h3>Свойство Margin</h3>
+            <p>CSS свойство margin определяет поля (пространства) вне
+                границы:<br>
+            margin: 50px
+            </p>
+
+        <h3>Ссылка на внешний CSS</h3>
+        <p>Внешние таблицы стилей могут указать полный URL адрес или
+            относительный путь к текущей веб странице.
+        </p>
+        <img src="imgs/img_link_to_external_CSS.png" height="1000" width="771"/>
+
+
+    <h1>HTML Ссылки - Гиперссылки</h1>
+        <p>
+            Краткое содержание главы:<br>
+            - Используйте элемент a для определения ссылки<br>
+            - Используйте атрибут href для определения адреса ссылки<br>
+            - Используйте атрибут target для определения места открытия
+            связанного документа<br>
+            - Используйте элемент img (внутри a) чтобы использовать
+            - изображение в качестве ссылки<br>
+            - Используйте mailto: схему внутри атрибута href, чтобы создать
+            ссылку, которая открывает программу электронной почты пользователя<br>
+        </p>
+        <p>HTML ссылки - это гиперссылки.<br>
+            Вы можете нажать на ссылку и перейти к другому документу.<br>
+            Когда вы наведете курсор мыши на ссылку, стрелка мыши превратится
+            в маленькую руку.<br>
+            Примечание: Ссылка не обязательно должна быть текстовой. Ссылка может быть изображением или любым другим HTML элементом!
+        </p>
+        <h3>HTML Ссылки - синтаксис</h3>
+            <img src="imgs/img_tag_a.png" height="227" width="700"/>
+        <h3>HTML Абсолютная ссылка</h3>
+            <p>Совет: Ссылки, конечно, можно стилизовать с помощью CSS, чтобы получить другой вид!</p>
+            <p><a href="https://sergioartg.com/">My site!</a></p>
+        <h3>HTML Ссылки - атрибут target</h3>
+            <p>По индексу связанная страница будет отображаться в текущем окне браузера.
+                Чтобы изменить это, необходимо указать другой целевой объект
+                для ссылки.<br>
+                Атрибут target указывает, где открыть связанный документ.<br>
+                Атрибут target может иметь одно из следующих значений:<br>
+                - _self - По умолчанию. Открывает документ в том же окне /
+                вкладке, в котором он был нажат<br>
+                - _blank - Открывает документ в новом окне или вкладке<br>
+                - _parent - Открывает документ в родительском фрейме<br>
+                - _top - Открывает документ во всем теле окна<br>
+            </p>
+        <h3>HTML Ссылка в новом окне</h3>
+            <a href="https://sergioartg.com/" target="_blank">My site</a>
+            <p>Если установить атрибут target в значение "_blank", ссылка откроется в новом окне или вкладке браузера.</p>
+        <h3>Абсолютные и относительные ссылки</h3>
+            <img src="imgs/img_absolute_and_relative_links.png" height="373"
+                 width="700"/>
+
+        <h3>HTML Ссылки - использование изображения в качестве ссылки</h3>
+            <p>Чтобы использовать изображение в качестве ссылки, просто поместите
+                тег img внутри тега a.
+            </p>
+            <p>Ссылкой является изображение. Вы можете нажать на нее.</p>
+
+            <a href="https://sergioartg.com/" >
+                <img src="imgs/img_my_site.png" alt="My site!"
+                     height="674" width="1000"/>
+            </a>
+
+        <h3>HTML Ссылка на адрес электронной почты</h3>
+
+            <p>Чтобы создать ссылку, которая открывается в почтовой программе пользователя (чтобы позволить ему отправить новое письмо), напишите нам по адресу: внутри атрибута href:</p>
+
+            <p><a href="mailto:someone@example.com">Отправить электронную почту</a></p>
+
+        <h3>HTML Кнопка в виде ссылки</h3>
+
+            <p>Нажмите на кнопку, чтобы перейти к учебнику HTML.</p>
+
+            <button
+                    onclick="document.location='https://schoolsw3.com/html/html_links.php'">HTML Учебник 'html_links'</button>
+        <h3>Названия ссылок</h3>
+            <p>Атрибут title задает дополнительную информацию об элементе.
+                Эта информация чаще всего отображается в виде текста всплывающей подсказки при наведении курсора мыши на элемент.
+            </p>
+            <p>Атрибут title задает дополнительную информацию об элементе.
+                Информация чаще всего отображается в виде текста всплывающей подсказки при наведении курсора мыши на элемент.
+            </p>
+                <a href="https://schoolsw3.com/html/" title="Перейти к SchoolsW3 HTML">
+                Посетите наш HTML Учебник</a>
+        <h3>Подробнее об абсолютных и относительных URL-адресах</h3>
+            <img src="imgs/img_absolute_relative_URLs.png" height="560" width="700"/>
+
+        <h3>HTML Ссылки цветные</h3>
+            <p>Вы можете изменить цвет ссылки по умолчанию</p>
+
+            <a id="special_a" href="https://schoolsw3.com/html/html_images.php"
+            target="_blank">HTML
+            Изображения</a>
+
+        <h3>Кнопка ссылки</h3>
+            <p>Ссылка, стилизованная под кнопку:</p>
+            <a id="button_a" href="https://sergioartg.com/" target="_blank">My site</a>
+
+        <h3>HTML Ссылки закладки</h3>
+            <p>Краткое содержание главы<br>
+                - Используйте атрибут id (id="value") определение закладок на
+                странице<br>
+                - Используйте атрибут href (href="#value") ссылка на
+                закладку<br>
+            </p>
+            <p>HTML ссылки можно использовать для создания закладок, чтобы читатели могли
+            перейти к определенным частям веб-страницы.<br>
+            Создание закладки в HTML<br>
+            Закладки могут быть полезны, если веб-страница очень длинная.
+            Чтобы создать закладку, сначала создайте закладку, а затем добавьте ссылку на нее.
+            При нажатии на ссылку страница будет прокручиваться вниз или вверх до места с закладкой.</p>
+            <h4>HTML Ссылка якорь</h4>
+
+            <p><a href="#C4">Перейти к Главе 4</a></p>
+
+            <h4>Глава 1</h4>
+            <p>В этой главе объясняется, ба бла бла</p>
+
+            <h4>Глава 2</h4>
+            <p>В этой главе объясняется, ба бла бла</p>
+
+            <h4>Глава 3</h4>
+            <p>В этой главе объясняется, ба бла бла</p>
+
+            <h4 id="C4">Глава 4</h4>
+            <p>В этой главе объясняется, ба бла бла</p>
+
+            <h4>Глава 5</h4>
+            <p>В этой главе объясняется, ба бла бла</p>
+
+            <h4>Глава 6</h4>
+            <p>В этой главе объясняется, ба бла бла</p>
+
+            <h4>Глава 7</h4>
+            <p>В этой главе объясняется, ба бла бла</p>
+
+            <h4>Глава 8</h4>
+            <p>В этой главе объясняется, ба бла бла</p>
+
+            <h4>Глава 9</h4>
+            <p>В этой главе объясняется, ба бла бла</p>
+
+            <h4>Глава 10</h4>
+            <p>В этой главе объясняется, ба бла бла</p>
+
+            <h4>Глава 11</h4>
+            <p>В этой главе объясняется, ба бла бла</p>
+
+            <h4>Глава 12</h4>
+            <p>В этой главе объясняется, ба бла бла</p>
+
+            <h4>Глава 13</h4>
+            <p>В этой главе объясняется, ба бла бла</p>
+
+            <h4>Глава 14</h4>
+            <p>В этой главе объясняется, ба бла бла</p>
+
+            <h4>Глава 15</h4>
+            <p>В этой главе объясняется, ба бла бла</p>
+
+            <h4>Глава 16</h4>
+            <p>В этой главе объясняется, ба бла бла</p>
+
+            <h4>Глава 17</h4>
+            <p>В этой главе объясняется, ба бла бла</p>
+
+    <h1>HTML Изображение</h1>
+        <p>HTML тег img используется для встраивания изображения в веб страницу.<br>
+            Изображения технически не вставляются на веб страницу; изображения связаны с веб страницами.
+            Тег img создает удерживающее пространство для ссылочного изображения.<br>
+            Тег img пуст, он содержит только атрибуты и не имеет закрывающего тега.<br>
+            Тег img имеет два обязательных атрибута:<br>
+            - src - Указывает путь к изображению<br>
+            - alt - Задает альтернативный текст для изображения<br>
+        </p>
+        <p>Краткое содержание:<br>
+            Используйте HTML элемент img для определения изображения<br>
+            Используйте HTML атрибут src для определения URL адреса изображения<br>
+            Используйте HTML атрибут alt для определения альтернативного текста для изображения, если оно не может быть отображено<br>
+            Используйте HTML атрибут width и height или CSS свойства width и height для определения размера изображения<br>
+            Используйте CSS свойство float позволять изображению плавать влево или вправо
+        </p>
+        <p><strong>Примечание</strong>: Загрузка больших изображений занимает много
+            времени и может замедлить работу вашей веб страницы. Используйте изображения осторожно.
+        </p>
+        <img src="imgs/img_girl_1.jpg" alt="Girl 1" height="231" width="164"/>
+        <img src="imgs/img_girl_2.jpg" alt="Girl 2" height="229" width="175"/>
+        <img src="imgs/img_girl_3.jpg" alt="Girl 3" height="229" width="186"/>
+
+        <h3>Атрибута src</h3>
+            <p>Атрибут src обязательный, указывает путь (URL) к изображению.
+                Примечание: Когда загружается веб страница, именно браузер в этот момент получает
+                изображение с веб сервера и вставляет его на страницу. Поэтому убедитесь,
+                что изображение действительно остается на том же месте по отношению к веб
+                странице, иначе ваши посетители получат значок сломанной ссылки.
+                Значок неработающей ссылки отображается, если браузер не может найти изображение.
+            </p>
+        <h3>Атрибут alt</h3>
+            <p>Примечание: Атрибут alt является <strong>обязательным</strong>
+                .<br>
+                Веб-страница не будет проверяться правильно без него.</p>
+            <p>Атрибут alt содержит альтернативный текст для изображения, если изображение
+                по какой-то причине не отображается (из-за медленного соединения или ошибки в
+                атрибуте src, тогда изображение используется для чтения с экрана).
+                Значение атрибута alt, должно описывать изображение.
+            </p>
+        <h3>Размер изображения - ширина и высота</h3>
+            <p>Вы можете использовать атрибут <b>style</b>, чтобы задать
+                ширину и
+                высоту изображения.<br>
+                img src="img_girl.jpg" alt="Девушка в куртке" style="width:500px;height:600px;
+            </p>
+            <p>Кроме того, вы можете использовать атрибуты <b>width и
+                height</b>:<br>
+                img src="img_girl.jpg" alt="Девушка в куртке" width="500" height="600"
+            </p>
+
+            <p>Все атрибуты width, height и style являются действительными в HTML5.
+                Однако, мы рекомендуем использовать атрибут style. Это предотвращает изменения
+                исходного размера изображения во внутренней и внешней таблицы стилей:
+            </p>
+            <p>На изображении ниже атрибут width установлен в 186 пикселей, но таблица
+                стилей переопределяет его и устанавливает ширину в 100%.
+            </p>
+            <img id="special_img" src="imgs/img_girl_3.jpg" alt="My photo" width="186"
+                 height="229">
+
+            <p>На рисунке ниже используется атрибут style, ширина которая равна 186 пикселям,
+                что переопределяет таблицу стилей:
+            </p>
+            <img id="special_img_2" src="imgs/img_girl_3.jpg" alt="My photo"
+                 style="width:186px;height:229px;">
+
+            <h3>Изображения на другом сервере</h3>
+                <p>Изображение находится на SchoolsW3.com в папке images и файле schoolsw3_green.jpg</p>
+                <img src="https://schoolsw3.com/images/schoolsw3_green.jpg" alt="SchoolsW3.com" style="width:104px;height:142px;">
+
+        <h3>HTML Изображение анимация</h3>
+
+            <p>Стандарт GIF позволяет двигаться изображению.</p>
+            <img src="gifts/Rotating_earth_(large).gif" alt="Rotating earth"
+             style="width:208px;height:208px;">
+
+        <h3>HTML Изображение ссылка</h3>
+
+        <p>Изображение является ссылкой. Вы можете нажать на нее.</p>
+        <a href="https://www.sergioartg.com">
+            <img src="imgs/img_girl_2.jpg" alt="My site www.sergioartg.com"
+                 title="www.sergioartg.com"
+                 style="width:175px;height:229px;border:0;">
+        </a>
+        <p>Добавить "border:0;" в IE9 (и более ранних версий) для предотвращения отображать границы вокруг изображения.</p>
+        <h3>HTML Плавающее изображение</h3>
+
+        <p><strong>Плавающее изображение справа:</strong></p>
+        <p>
+        <img src="gifts/smiley_GIF.gif" alt="Смайлик" style="float:right;width:42px;height:42px;">
+        Параграф с плавающим изображением. Параграф с плавающим изображением. Параграф с плавающим изображением.
+        </p>
+
+        <p><strong>Плавающее изображение слева:</strong></p>
+        <p>
+        <img src="gifts/smiley_GIF.gif" alt="Смайлик" style="float:left;width:42px;height:42px;">
+        Параграф с плавающим изображением. Параграф с плавающим изображением. Параграф с плавающим изображением.
+        </p>
+
+        <h3>Общие форматы изображений</h3>
+            <img src="imgs/img_common_image_formats.png" height="539" width="1000"/>
+
+        <h3>Тег map и area</h3>
+            <p>Тег map определяет изображение-карту. Изображение-карта - это изображение с
+                 кликабельными областями.
+            </p>
+        <p>Тег map используется для определения карты изображений. Карта изображений - это изображение с кликабельными областями.
+            Атрибут name обязателен для элемента map, связан с атрибутом usemap и создает связь между img и картой.
+            Элемент map содержит ряд элементов, определяющих кликабельные области area на карте изображений.
+        </p>
+
+        <p>Нажмите на солнце или на одну из планет, чтобы посмотреть на нее поближе:</p>
+        <p>Изображение вставляется с помощью тега <img>. Единственное отличие от
+            других изображений заключается в том, что вы должны добавить
+            атрибут usemap.<br>
+            Значение usemap начинается с хэштега # затем следует имя карты изображений,
+            и используется для создания связи между изображением и картой
+            изображений.<br><br>
+            img src="Solar_System_size_to_scale_ru_1000px.jpg" alt="Планеты" usemap="#planetmap"
+        </p>
+        <p><b>Примечание</b>: Вы можете вставить элемент map в любом месте,
+            где вам нравится, он не должен быть вставлен сразу после изображения.
+        </p>
+        <img src="imgs/Solar_System_size_to_scale_ru_1000px.png"
+                height="554" width="1000"  alt="Планеты" usemap="#planetmap"/>
+
+        <map name="planetmap">
+            <area shape="rect" coords="0,0,110,554"
+                  href="https://en.wikipedia.org/wiki/Sun" alt="Солнце">
+            <area shape="circle" coords="183,221,8"
+                  href="https://en.wikipedia.org/wiki/Mercury_(planet)"
+                  alt="Mercury">
+            <area shape="circle" coords="219,221,8"
+                  href="https://en.wikipedia.org/wiki/Venus" alt="Venus">
+            <area shape="circle" coords="268,221,10"
+                  href="https://en.wikipedia.org/wiki/Earth" alt="Earth">
+            <area shape="circle" coords="313,221,8"
+                  href="https://en.wikipedia.org/wiki/Mars" alt="Mars">
+            <area shape="circle" coords="398,221,55"
+                  href="https://en.wikipedia.org/wiki/Jupiter" alt="Jupiter">
+            <area shape="circle" coords="549,221,48"
+                  href="https://en.wikipedia.org/wiki/Saturn" alt="Saturn">
+            <area shape="circle" coords="644,221,23"
+                  href="https://en.wikipedia.org/wiki/Uranus" alt="Uranus">
+            <area shape="circle" coords="707,221,23"
+                  href="https://en.wikipedia.org/wiki/Neptune" alt="Neptune">
+            <area shape="circle" coords="332,347,8"
+                  href="https://en.wikipedia.org/wiki/Neptune" alt="Neptune">
+            <area shape="rect" coords="618,335,810,391"
+                  href="https://en.wikipedia.org/wiki/Solar_System" alt="Solar System">
+            </map>
+
+        <h3>Тег area. Карта с кликабильными областями</h3>
+            <p>Краткое содержание<br>
+                - Используйте HTML элемент map для определения карты
+                изображений<br>
+                - Используйте HTML элемент area для определения кликабельных
+                областей на карте изображений<br>
+                - Используйте HTML атрибут usemap самого элемента img для
+                указания на карту изображений<br>
+            </p>
+
+        <p>Нажмите на компьютер, телефон или чашку кофе, чтобы перейти
+            на новую страницу и прочитать больше о теме:</p>
+
+        <img src="imgs/workplace.jpg" alt="Рабочее место" usemap="#workmap"
+             width="400" height="379">
+
+        <map name="workmap">
+            <area shape="rect" coords="34,44,270,350" alt="Компьютер"
+                  href="https://en.wikipedia.org/wiki/Computer">
+            <area shape="rect" coords="290,172,333,250" alt="Телефон"
+                  href="https://en.wikipedia.org/wiki/Mobile_phone">
+            <area shape="circle" coords="337,300,44" alt="Чашка кофе"
+                  href="https://en.wikipedia.org/wiki/Coffee">
+            <area shape="poly" coords="0,208,31,220,0,290" alt="Чашка кофе"
+                  href="https://en.wikipedia.org/wiki/Note">
+        </map>
+        <h3>Создание области</h3>
+            <p>Кликабельная область определяется с помощью элемента <b>area</b>.
+                Форма<br>
+                Вы должны определить форму области, и вы можете выбрать одно из этих
+                значений:<br>
+                - rect - определяет прямоугольную область<br>
+                - circle - определяет круговую область<br>
+                - poly - определяет полигональную область<br>
+                - default - определяет всю область<br>
+                Вы также должны определить некоторые координаты, чтобы иметь возможность разместить кликабельную область на изображении.
+            </p>
+            <p><b>Shape="rect"</b> Координаты для shape= "rect" приходят парами, один для
+                оси x и один для оси Y. Координата 34, 44 находится на расстоянии 34 пикселей
+                от левого края и 44 пикселей от верхнего.<br>
+                Координата 270, 350 находится на расстоянии 270 пикселей от левого края
+                и 350 пикселей от верхнего:
+            </p>
+            <p><b>Shape="circle"</b>Чтобы добавить область круга, сначала найдите
+                координаты центра круга: 337, 300. Затем укажите радиус окружности:
+                44 пикселей.
+            </p>
+            <p><b>Shape="poly"</b>shape="poly" содержит несколько координатных точек,
+                которые создают фигуру, образованную прямыми линиями (многоугольник).Это может быть использовано для создания любой формы.
+            </p>
+
+        <h3>HTML Изображение карта с JavaScript</h3>
+
+            <p>Нажмите на чашку кофе, чтобы выполнить функцию JavaScript:</p>
+
+            <img src="imgs/workplace.jpg" alt="Рабочее место"
+                 usemap="#workmap_2" width="400" height="379">
+
+            <map name="workmap_2">
+                <area shape="circle" alt="Рабочее место" coords="337,300,44"
+                      onclick="myFunction()">
+            </map>
+
+            <script>
+            function myFunction() {
+            alert("Ты щелкнул по кофейной чашке!");
+            }
+            </script>
+
+        <h3>HTML Изображение фон</h3>
+            <p>Чтобы добавить фоновое изображение в HTML элемент, используйте атрибут HTML
+                style и CSS свойство background-image.
+            </p>
+            <div style="background-image: url('imgs/img_girl_3.jpg');
+            color:dodgerblue">
+            Вы можете указать фоновые изображения<br>
+            для любого видимого элемента HTML.<br>
+            В данном примере фоновое изображение<br>
+            указывается для данного параграфа.<br>
+            По умолчанию фоновое изображение<br>
+            повторится в направлении(направлениях)<br>
+            где оно меньше, чем элемент<br>
+            где это указано. (Попробуйте изменить размер<br>
+            окно браузера, чтобы увидеть, как<br>
+            фоновое изображение ведет себя.
+            </div>
+            <p>Вы также можете указать фоновое изображение в элементе style в разделе head:</p>
+            <img src="imgs/img_background_style.png" height="352" width="700"/>
+
+        <h3>Фоновое изображение на странице</h3>
+        <img src="imgs/img_background_page.png" height="332" width="700"/>
+        <p>Если фоновое изображение меньше элемента, то изображение будет повторяться
+            по горизонтали и вертикали, пока не достигнет конца элемента.
+        </p>
+        <p>Чтобы фоновое изображение не повторялось, установите для свойства background-repeat
+            значение no-repeat.
+        </p>
+        <img src="imgs/img_no_repeat.png" height="164" width="700"/>
+
+        <p>Фоновая обложка</p>
+        <img src="imgs/img_background_cover.png" height="450" width="700"/>
+        <p>Фоновая растяжка
+            Если вы хотите, чтобы фоновое изображение растягивалось, чтобы
+            соответствовать всему элементу, вы можете установить для свойства
+            background-size: 100% 100%:
+        </p>
+        <h3>HTML элемент picture</h3>
+            <p>HTML5 представляет элемент picture чтобы добавить больше гибкости при указании ресурсов изображения.
+                Элемент picture содержит ряд элементов source, каждый из них ссылается на разные источники изображений.
+                аким образом, браузер может выбрать изображение, которое лучше всего соответствует текущему виду и/или устройству.
+                Каждые элементы source имеют атрибуты, описывающие, когда их изображение является наиболее подходящим.
+            </p>
+            <p><strong>Примечание</strong>: Всегда указывайте элемент img как
+                последний
+                            дочерний элемент
+                picture. Элемент img используется браузерами, которые не поддерживают элемент picture, если ни один из них тег source совпадает
+            </p>
+            <picture>
+                <source media="(min-width: 650px)" srcset="imgs/workplace.jpg">
+                <source media="(min-width: 465px)" srcset="imgs/img_girl_2.jpg">
+                <img src="imgs/img_girl_1.jpg" alt="girl" style="width:auto;">
+            </picture>
+
+            <p>Измените размер браузера, чтобы увидеть различные версии загрузки изображения в разных размерах видового экрана.
+            Браузер ищет первый исходный элемент, в котором медиа-запрос соответствует текущей ширине видового экрана пользователя,
+            и извлекает изображение, указанное в атрибуте srcset.</p>
+
+            <p>Элемент img требуется в качестве последнего дочернего тега блока объявления изображения.
+            Элемент img используется для обеспечения обратной совместимости для браузеров, которые не поддерживают элемент picture, или если ни один из исходных тегов не соответствует.</p>
+
+            <p><strong>Примечание:</strong> Элемент picture не поддерживается в IE12 и более ранних версиях или Safari 9.0 и более ранних версиях.</p>
+    <p><strong>Когда использовать элемент Picture?</strong><br>
+            Существует две основные цели для элемента picture:<br>
+            1. Пропускная способность<br>
+            Если у вас есть маленький экран или устройство, нет необходимости
+            загружать большой файл изображения. Браузер будет использовать первый
+            элемент source с соответствующими значениями атрибутов, и игнорировать
+            любой из следующих элементов.<br>
+            2. Поддержка форматов<br>
+            Некоторые браузеры или устройства могут не поддерживать все форматы изображений.
+            С помощью элемента picture, вы можете добавлять изображения всех форматов,
+            и браузер будет использовать первый формат, который он распознает, и игнорировать
+            любой из следующих.
+
+        </p>
+
+    <h1>HTML Таблицы</h1>
+        <p>Краткое содержание<br>
+            Используйте в HTML элемент table для определения таблиц<br>
+            Используйте в HTML элемент tr чтобы определить строку таблицы<br>
+            Используйте в HTML элемент td для определения табличных данных<br>
+            Используйте в HTML элемент th чтобы определить заголовок таблицы<br>
+            Используйте в HTML элемент caption чтобы определить надпись таблицы<br>
+            Используйте в CSS свойство border чтобы определить границы<br>
+            Используйте в CSS свойство border-collapse чтобы рухнули границы ячеек<br>
+            Используйте в CSS свойство padding чтобы добавить отступы для ячеек<br>
+            Используйте в CSS свойство text-align для выравнивания текста в ячейке<br>
+            Используйте в CSS свойство border-spacing чтобы задать интервал между ячейками<br>
+            Используйте атрибут colspan для создания ячейки охватывают множество столбцов<br>
+            Используйте атрибут rowspan чтобы сделать промежуток ячейке несколько строк<br>
+            Используйте атрибут id для определения одной таблицы
+        </p>
+
+        <p>HTML таблицы позволяют веб разработчикам упорядочивать данные в строки и
+            столбцы
+        </p>
+        <table>
+          <tr>
+            <th>Компания</th>
+            <th>Контакты</th>
+            <th>Страна</th>
+          </tr>
+          <tr>
+            <td>Alfreds Futterkiste</td>
+            <td>Мария Андерс</td>
+            <td>Германия</td>
+          </tr>
+          <tr>
+            <td>Centro comercial Moctezuma</td>
+            <td>Франсиско Чанг</td>
+            <td>Мексика</td>
+          </tr>
+          <tr>
+            <td>Ernst Handel</td>
+            <td>Роланд Мендель</td>
+            <td>Австрия</td>
+          </tr>
+          <tr>
+            <td>Island Trading</td>
+            <td>Хелен Беннетт</td>
+            <td>Великобритания</td>
+          </tr>
+          <tr>
+            <td>Laughing Bacchus Winecellars</td>
+            <td>Йоши Таннфмури</td>
+            <td>Канада</td>
+          </tr>
+          <tr>
+            <td>Magazzini Alimentari Riuniti</td>
+            <td>Иоанн Ровелли</td>
+            <td>Италия</td>
+          </tr>
+        </table>
+
+        <p>Определение таблицы HTML.<br>
+            Тег table определяет таблицу HTML. Каждая строка таблицы определяется с
+            помощью тега tr. Каждый заголовок таблицы определяется с помощью тега th.
+            Каждая таблица данных/ячейка определяется с помощью тега td.
+            По умолчанию текст элементы th выделены жирным шрифтом и центрированы.
+            По умолчанию текст элементы td являются регулярными и выровненными по левому краю.
+        </p>
+        <p>HTML Таблица - Добавление границы. <br>
+            Чтобы добавить границу втаблицу,
+            используйте CSS свойство border.<br>
+            border: 1px solid black;
+        </p>
+        <p>HTML Таблица - Край границ.<br>
+            Чтобы позволить границам свернуться в одну границу,
+            добавьте CSS свойство border-collapse.<br>
+            table, th, td {border: 1px solid black;border-collapse: collapse;}
+        </p>
+
+        <p>HTML Таблица - Добавить заполнение ячеек.<br>
+            Заполнение ячейки задает пространство между содержимым ячейки и ее границами.
+            Если вы не зададите заполнение, ячейки таблицы будут отображаться без заполнения.
+            Чтобы установить отступ, используйте CSS свойство padding.<br>
+           th, td {padding: 15px;}
+        </p>
+        <p>HTML Таблица - Выравнивание заголовков по левому краю.<br>
+            По умолчанию заголовки таблиц выделены жирным шрифтом и центрированы.
+            Чтобы выровнять заголовки таблиц по левому краю, используйте CSS свойство
+            text-align.<br>
+            th {text-align: left;}
+        </p>
+        <p>HTML Таблица - Добавить интервал между границами.<br>
+            Расстояние между границами определяет расстояние между ячейками.
+            Чтобы задать интервал между границами таблицы, используйте CSS свойство
+            border-spacing.<br>
+            table {border-spacing: 5px;}
+        </p>
+        <p>HTML Таблица - Ячейка, охватывающая много столбцов.<br>
+            Чтобы сделать ячейку охватывающей более одного столбца, используйте
+            атрибут colspan.<br>
+            <img src="imgs/img_colspan.png" height="438" width="1000"/>
+        </p>
+        <p>HTML Таблица - Ячейка, охватывающая много строк.<br>
+            Чтобы сделать ячейку охватывающей более одной строки, используйте атрибут
+            rowspan.
+        </p>
+        <img src="imgs/img_rowspan.png" height="445" width="1000"/>
+        <p>HTML Таблица с надписью</p>
+        <p>Примечание: Тег caption должен быть вставлен сразу же после тега table.</p>
+
+        <table style="width:100%">
+          <caption>Ежемесячные сбережения</caption>
+          <tr>
+            <th>Месяц</th>
+            <th>Экономия</th>
+          </tr>
+          <tr>
+            <td>Январь</td>
+            <td>$100</td>
+          </tr>
+          <tr>
+            <td>Февраль</td>
+            <td>$50</td>
+          </tr>
+        </table>
+
+        <p>HTML Таблица с идентификатором id</p>
+            <p>Чтобы определить специальный стиль для одной конкретной таблицы, добавьте
+                атрибут id к таблице.<br>
+                table id="t01"
+            </p>
+
+        <table style="width:100%">
+          <tr>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Лет</th>
+          </tr>
+          <tr>
+            <td>Ева</td>
+            <td>Джексон</td>
+            <td>94</td>
+          </tr>
+            <tr>
+            <td>Ева</td>
+            <td>Джексон</td>
+            <td>94</td>
+          </tr>
+          <tr>
+            <td>Ева</td>
+            <td>Джексон</td>
+            <td>94</td>
+          </tr>
+        </table>
+        <br>
+
+        <table id="t01">
+          <tr>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Лет</th>
+          </tr>
+          <tr id="tr01">
+            <td>Ева</td>
+            <td>Джексон</td>
+            <td>94</td>
+          </tr>
+        </table>
+
+    <h1>HTML Списки</h1>
+        <p>HTML списки позволяют веб разработчикам группировать набор связанных элементов в списках.</p>
+        <h2>Неупорядоченный список HTML</h2>
+        <p>Неупорядоченный список начинается с тега ul. Каждый элемент списка
+            начинается с тега li. По умолчанию элементы списка будут помечены
+            маркерами (маленькими черными кружочками):
+        </p>
+
+        <ul id="ul01">
+          <li>Кофе</li>
+          <li>Чай</li>
+          <li>Молоко</li>
+        </ul>
+
+        <h3>Упорядоченный список HTML</h3>
+        <p>Упорядоченный список начинается с тега ol. Каждый элемент списка начинается с тега li.
+            По умолчанию элементы списка будут помечены цифрами:
+        </p>
+
+            <ol>
+              <li>Кофе</li>
+              <li>Чай</li>
+              <li>Молоко</li>
+            </ol>
+
+        <h3>HTML Описанный список</h3>
+            <p>Список описаний - это список терминов с описанием каждого термина.
+                Тег dl определяет список описаний, тег dt определяет термин (имя), и тег dd описывает каждый термин:
+            </p>
+
+                <dl>
+                  <dt>Кофе</dt>
+                  <dd>- черный горячий напиток</dd>
+                  <dt>Молоко</dt>
+                  <dd>- белый холодный напиток</dd>
+                </dl>
+        <h3>HTML Список неупорядоченный с кругом</h3>
+
+            <ul style="list-style-type:circle">
+              <li>Кофе</li>
+              <li>Чай</li>
+              <li>Молоко</li>
+            </ul>
+
+        <h3>HTML Список неупорядоченный с маркерованным квадратом</h3>
+
+            <ul style="list-style-type:square">
+              <li>Кофе</li>
+              <li>Чай</li>
+              <li>Молоко</li>
+            </ul>
+
+        <h3>HTML Вложенный список 1</h3>
+
+            <ul>
+              <li>Кофе</li>
+              <li>Чай
+                <ul>
+                  <li>Черный чай</li>
+                  <li>Зеленый чай</li>
+                </ul>
+              </li>
+              <li>Молоко</li>
+            </ul>
+
+        <h3>HTML Список меню горизонтальное</h3>
+        <p>HTML списки можно стилизовать по-разному с помощью CSS.
+            Один из популярных способов, стилизовать список горизонтально,
+            чтобы создать навигационное меню:
+        </p>
+
+            <ul id="ul02">
+              <li id="li02"><a href="">Welcome</a></li>
+              <li id="li03"><a href="">Новости</a></li>
+              <li id="li04"><a href="">Контакты</a></li>
+              <li id="li05"><a href="">О Нас</a></li>
+            </ul>
+
+        <h3>Упорядоченный HTML список</h3>
+        <p>Упорядоченный список начинается с тега ol. Каждый элемент списка начинается с тега li.
+            По умолчанию элементы списка будут помечены цифрами:
+        </p>
+        <h3>HTML Список упорядоченный цифрами</h3>
+
+        <ol type="1">
+          <li>Кофе</li>
+          <li>Чай</li>
+          <li>Молоко</li>
+        </ol>
+        <p>
+        Тип	Описание<br>
+        type="1"	Элементы списка будут пронумерованы цифрами (по умолчанию)<br>
+        type="A"	Элементы списка будут пронумерованы прописными буквами<br>
+        type="a"	Элементы списка будут пронумерованы строчными буквами<br>
+        type="I"	Элементы списка будут пронумерованы прописными римскими цифрами<br>
+        type="i"	Элементы списка будут пронумерованы строчными римскими цифрами
+        </p>
+        <h3>Подсчет контрольного списка.</h3>
+        <p>По умолчанию упорядоченный список
+        начинает отсчет с 1.
+        Если вы хотите начать отсчет с указанного числа, вы можете
+        использовать атрибут start:<br>
+        </p>
+        <ol start="50">
+            <li>Кофе</li>
+            <li>Чай</li>
+            <li>Молоко</li>
+        </ol>
+        <h3>Вложенные HTML списки</h3>
+        <ol>
+          <li>Кофе</li>
+          <li>Чай
+            <ol>
+              <li>Черный чай</li>
+              <li>Зеленый чай</li>
+              <li>Зеленый чай 2</li>
+            </ol>
+          </li>
+          <li>Молоко</li>
+        </ol>
+        <p><strong>Примечание</strong>: Элемент списка (li) может содержать новый список, и
+        другие HTML элементы, например, изображения и ссылки и т.д.
+        </p>
+
+        <h3>HTML Списки описанные</h3>
+        <p>Список описаний - это список терминов с описанием каждого термина. Тег dl
+            определяет список описаний, тег dt определяет термин (имя), и тег dd описывает каждый термин:
+        </p>
+        <dl>
+          <dt>Кофе</dt>
+          <dd>- черный горячий напиток</dd>
+          <dt>Молоко</dt>
+          <dd>- белый холодный напиток</dd>
+        </dl>
+
+    <h1>HTML Блоки и встроенные элементы</h1>
+        <p>Каждый HTML элемент имеет значение отображения по умолчанию, в зависимости от типа элемента.
+            Существует два значения отображения: блочный и встроенный.
+        </p>
+        <p>Краткое содержание главы<br>
+            - Существует два значения отображения: блочный и встроенный<br>
+            - Элемент уровня блока всегда начинается с новой строки и занимает всю
+                    доступную ширину<br>
+            - Встроенный элемент не начинается с новой строки и занимает только столько
+                    ширины, сколько необходимо<br>
+            - Элемент div является блочным уровнем и часто используется в качестве
+                    контейнера для других HTML элементов<br>
+            - Элемент span - это встроенный контейнер, используемый для разметки части<br>
+                        текста или части документа
+        </p>
+
+
+    <h2>Элементы блочного уровня</h2>
+        <p>Элемент уровня блока всегда начинается с новой строки и занимает всю доступную ширину
+            (растягивается влево и вправо, насколько это возможно).
+            Элемент div является элементом блочного уровня.
+        </p>
+        <h3>HTML Элемент div блок</h3>
+
+        <div style="border: 1px solid black">Привет мир!</div>
+
+        <p>Элемент DIV является блочным элементом и всегда будет начинаться с новой
+            строки и занимать всю доступную ширину (растягивается влево и вправо, насколько это возможно).
+        </p>
+        <p>Здесь представлены блочные элементы в HTML:</p>
+
+
+        <h2>Встроенный элемент</h2>
+        <p>Встроенный элемент не начинается с новой строки и занимает только столько ширины, сколько необходимо.
+            Это элемент span внутри параграфа.
+        </p>
+        <img src="imgs/img_block_elements.png" height="144" width="700"/>
+
+        <h3>HTML Элемент span встроенный</h3>
+
+        <p>Это встроенный элемент <span style="border: 1px solid black">Привет мир</span> внутри параграфа.</p>
+
+        <p>Элемент SPAN является встроенным элементом и не будет начинаться с новой строки и занимает
+            только столько ширины, сколько необходимо.
+        </p>
+        <img src="imgs/img_inline_elements.png" height="172" width="700"/>
+
+        <h3>Элемент div</h3>
+            <p>Элемент div часто используется в качестве контейнера для других HTML элементов.
+                Элемент div не имеет обязательных атрибутов, но style, class и id являются общими.
+                При использовании вместе с CSS, элемент div можно использовать для стилизации блоков контента:
+            </p>
+            <div style="background-color:black;color:white;padding:20px;">
+              <h2>Лондон</h2>
+              <p>Лондон - столица Англии. Это самый густонаселенный город в Соединенном Королевстве, с метрополией более 13 миллионов жителей.</p>
+              <p>Расположенный на реке Темзе, Лондон был крупным поселением в течение двух тысячелетий, его история восходит к его основанию римлянами, которые назвали его Лондиниум.</p>
+            </div>
+
+        <h3>Элемент span</h3>
+            <p>Элемент span - это встроенный контейнер, используемый для разметки части текста или части документа.
+                Элемент span не имеет обязательных атрибутов, но style, class и id являются общими.
+                При использовании вместе с CSS, элемент span элемент можно использовать для стилизации частей текста:
+            </p>
+            <p>У моей матери глаза <span style="color:green;font-weight:bold">зеленые</span>
+                у моего отца глаза <span style="color:mediumvioletred;font-weight:bold;
+                background-color:lightgreen">темно-зеленые</span> глаза.
+            </p>
+
+
+    <h1>HTML Классы</h1>
+    <h3>Краткое содержание главы</h3>
+    <p>
+        - HTML атрибут class указывает одно или несколько имен классов для
+        элемента<br>
+        - Классы используются CSS и JavaScript для выбора и доступа к
+        определенным элементам<br>
+        - Атрибут class может быть использован для любого HTML элемента
+        - Имя класса чувствительно к регистру<br>
+        - Различные элементы HTML могут указывать на одно и то же имя класса<br>
+        - JavaScript может получить доступ к элементам с определенным именем
+        класса с помощью мтода getElementsByClassName()
+    </p>
+        <p>HTML атрибут class используется для указания класса для элемента HTML.
+            Несколько HTML элементов могут совместно использовать один и тот же класс.
+        </p>
+        <p>Использование атрибута class<br>
+            - Атрибут class часто используется для указания на имя класса в таблице
+            стилей.
+            Он также может быть использован JavaScript для доступа и манипулирования
+            элементами с определенным именем класса.<br>
+            - В следующем примере мы имеем три элемента div с атрибутом class и со
+            значением "city".
+            Все три элемента div будут стилизованы одинаково в соответствии с определением стиля .city в головном разделе:
+        </p>
+
+        <div class="city">
+          <h2>Лондон</h2>
+          <p>Лондон - столица Англии.</p>
+        </div>
+
+        <div class="city">
+          <h2>Париж</h2>
+          <p>Париж - столица Франции.</p>
+        </div>
+
+        <div class="city">
+          <h2>Токио</h2>
+          <p>Токио - столица Японии.</p>
+        </div>
+
+        <h3>HTML Несколько классов стиля</h3>
+
+        <h4>Классифицированный элемент span CSS/HTML</h4>
+
+        <h4>Мой <span class="note">Важный</span> Заголовок</h4>
+        <p>Это <span class="note">Важный</span> текст.</p>
+
+        <p>Совет: Атрибут class может быть использован на каждом HTML элементе.<br>
+            Примечание: Имя класса чувствительно к регистру!
+        </p>
+        <h3>Определение стилей для класса</h3>
+            <p>Чтобы определить свойства CSS для класса, напишите точку (.) символ, за
+                   которым следует название класса. Затем добавьте свойства CSS в
+                фигурные скобки {}:
+            </p>
+            <h2 class="city_02">Лондон</h2>
+            <p>Лондон - столица Англии.</p>
+
+            <h2 class="city_02">Париж</h2>
+            <p>Париж - столица Франции.</p>
+
+            <h2 class="city_02">Токио</h2>
+            <p>Токио - столица Японии.</p>
+
+        <h3>Несколько классов</h3>
+            <p>HTML элементы могут иметь более одного имени класса.
+                Чтобы указать несколько классов, разделите имена классов пробелом,
+                например div class="city_03 main_03".
+                Это позволяет объединить несколько классов CSS для одного HTML элемента.
+                В следующем примере первый элемент h4 принадлежит обоим
+                классам city, а также к классу main, и получит стили CSS от обоих классов:
+            </p>
+
+            <h3>HTML Атрибут class несколько</h3>
+
+            <p>Несколько классов</p>
+            <p>Все три заголовка имеют имя класса "city_03". Кроме того, у Лондона
+                также есть имя класса "main_03", которое выравнивает текст по центру.
+            </p>
+            <h4 class="city_03 main_03">Лондон</h4>
+            <h4 class="city_03">Париж</h4>
+            <h4 class="city_03">Токио</h4>
+
+            <h3>Различные элементы могут иметь один и тот же класс</h3>
+                <p>Различные HTML элементы могут указывать на одно и то же имя класса.</p>
+                <p>HTML Cтиль с именем класса в другом теге</p>
+                <p>Класс тот же, но в другом теге CSS/HTML</p>
+                <p>Даже если эти два элемента не имеют одинаковое имя тега, они могут иметь то же имя класса,
+                    и получить тот же стиль:
+                </p>
+
+                <h4 class="city_04">Париж</h4>
+                <p class="city_04">Париж является столицей Франции.</p>
+
+            <h3>Использование атрибута class в JavaScript</h3>
+                <p>Имя класса также может использоваться JavaScript для выполнения определенных
+                    задач для определенных элементов. JavaScript может получить доступ к элементам
+                    с определенным именем класса с помощью метода
+                    <strong>getElementsByClassName()</strong>:
+                </p>
+                <p>Нажмите на кнопку, чтобы скрыть все элементы с именем класса "city", с помощью JavaScript:</p>
+
+                <button onclick="myFunction_03()">Скрытый элемент</button>
+
+                <h2 class="city">Лондон</h2>
+                <p>Лондон столица Англии.</p>
+
+                <h2 class="city_03">Париж</h2>
+                <p>Париж столица Франции.</p>
+
+                <h2 class="city">Токио</h2>
+                <p>Токио столица Японии.</p>
+
+                <script>
+                function myFunction_03() {
+                  var x = document.getElementsByClassName("city");
+                  for (var i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";
+                  }
+                }
+                </script>
+
+
+    <h1>HTML Идентификаторы</h1>
+        <p>HTML атрибут id используется для указания уникального идентификатора HTML элемента.</p>
+        <p>Атрибут id задает уникальный идентификатор для HTML элемента (значение
+            должно быть уникальным в HTML документе).<br>
+            Значение идентификатора HE может использоваться CSS и JavaScript для
+            выполнения определенных задач для уникального элемента с указанным
+            значением идентификатора.<br>
+            В CSS, чтобы выбрать элемент с определенным идентификатором, напишите символ хэша (#),
+            за ним следует идентификатор элемента:
+        </p>
+        <h3 id="myHeader">Мой Заголовок</h3>
+        <p>Совет: Атрибут id может использовать любой HTML элемент.<br>
+            Примечание: Значение id чувствительно к регистру.<br>
+            Примечание: Значение id должно содержать по крайней мере один символ и не должны
+            содержать пробельных символов (пробелов, табуляций и т.д.).
+        </p>
+        <h3>Разница между атрибутами Сlass и ID</h3>
+        <p>HTML элемент может иметь только один уникальный идентификатор, который принадлежит
+            к одному элементу, а имя класса может использоваться несколькими элементами:
+        </p>
+
+        <!-- Уникальный элемент -->
+        <h3 id="myHeader_04">My Cities</h3>
+
+        <!-- Несколько похожих элементов -->
+        <h2 class="city_04">Лондон</h2>
+        <p>Лондон-столица Англии.</p>
+
+        <h2 class="city_04">Париж</h2>
+        <p>Париж-столица Франции.</p>
+
+        <h2 class="city_04">Токио</h2>
+        <p>Токио-столица Японии.</p>
+
+        <h3>Закладки с ID с ссылками</h3>
+        <p>HTML-закладки используются, чтобы позволить читателям перейти к
+            определенным частям веб-сайта страница.<br>
+            Закладки могут быть полезны, если Ваша страница очень длинная.<br>
+            Чтобы создать закладку, необходимо сначала создать закладку, а затем добавить
+            ссылку к ней.<br>
+            При нажатии на ссылку страница будет прокручиваться до места, в котором закладка
+        </p>
+        <h3>HTML Ссылка якорь</h3>
+
+        <p><a href="#C13">Перейти к Главе 13</a></p>
+
+        <h2>Глава 1</h2>
+        <p>В этой главе объясняется, ба бла бла</p>
+
+        <h2>Глава 2</h2>
+        <p>В этой главе объясняется, ба бла бла</p>
+
+        <h2>Глава 3</h2>
+        <p>В этой главе объясняется, ба бла бла</p>
+
+        <h2>Глава 4</h2>
+        <p>В этой главе объясняется, ба бла бла</p>
+
+        <h2>Глава 5</h2>
+        <p>В этой главе объясняется, ба бла бла</p>
+
+        <h2>Глава 6</h2>
+        <p>В этой главе объясняется, ба бла бла</p>
+
+        <h2>Глава 7</h2>
+        <p>В этой главе объясняется, ба бла бла</p>
+
+        <h2>Глава 8</h2>
+        <p>В этой главе объясняется, ба бла бла</p>
+
+        <h2>Глава 9</h2>
+        <p>В этой главе объясняется, ба бла бла</p>
+
+        <h2>Глава 10</h2>
+        <p>В этой главе объясняется, ба бла бла</p>
+
+        <h2>Глава 11</h2>
+        <p>В этой главе объясняется, ба бла бла</p>
+
+        <h2>Глава 12</h2>
+        <p>В этой главе объясняется, ба бла бла</p>
+
+        <h2 id="C13">Глава 13</h2>
+        <p>В этой главе объясняется, ба бла бла</p>
+
+        <h2>Глава 14</h2>
+        <p>В этой главе объясняется, ба бла бла</p>
+
+        <h2>Глава 15</h2>
+        <p>В этой главе объясняется, ба бла бла</p>
+
+        <h2>Глава 16</h2>
+        <p>В этой главе объясняется, ба бла бла</p>
+
+        <h2>Глава 17</h2>
+        <p>В этой главе объясняется, ба бла бла</p>
+
+        <h3>Использование атрибута id в JavaScript</h3>
+        <p>JavaScript может получить доступ к элементу с определенным ID с помощью
+            метода<br>
+            getElementById():
+        </p>
+        <p>JavaScript может получить доступ к элементу с указанным идентификатора, используя метод getElementById():</p>
+
+        <h2 id="myHeader_05">Привет Мир!</h2>
+        <button onclick="displayResult()">Изменить текст</button>
+
+        <script>
+        function displayResult() {
+            document.getElementById("myHeader_05").innerHTML = "Хорошего дня!";
+        }
+        </script>
+    <h1>HTML Фреймы</h1>
+        <p>iframe используется для отображения веб страниц в веб странице</p>
+        <p>Синтаксис фрейма. Фрейм HTML определяется тегом iframe.<br>
+            Атрибут src задает URL адрес (веб адрес) страницы фрейма.
+        </p>
+        <p>Фрейм - высота и ширина<br>
+            Атрибуты height и width указывают размер фрейма.
+            Значения атрибутов указываются в пикселях по умолчанию, они также могут быть в процентах ("80%").
+        </p>
+        <h3>HTML Размеры фрейма</h3>
+            <iframe src="gifts/Rotating_earth_(large).gif" height="480"
+                    width="480"></iframe>
+
+            <p>Вы также можете использовать свойства высоты и ширины CSS для указания размера iframe:</p>
+
+            <iframe src="https://www.sergioartg.com" style="height:300px;width:900px"></iframe>
+
+        <h3>Фрейм - убрать границы</h3>
+            <p>По умолчанию, фрейм имеет границу вокруг него.
+                Убрать границы, нужно добавить атрибут style используя CSS свойство border
+            </p>
+            <p>Чтобы удалить границу iframe по умолчанию, используйте CSS:</p>
+
+            <iframe src="gifts/Rotating_earth_(large).gif" style="border:none;"></iframe>
+
+            <p>С помощью CSS можно изменить размер, стиль и цвет границы элемента iframe:
+            <iframe src="gifts/Rotating_earth_(large).gif" style="border:2px solid red;"></iframe>
+        <h3>Фрейм - целевая ссылка</h3>
+            <p>Фрейм может быть использован в качестве целевого кадра по ссылке.
+            Атрибут ссылки target, ссылаться на атрибут name из iframe:
+            </p>
+
+            <iframe height="300px" width="100%" src="gifts/Rotating_earth_(large).gif" name="iframe_a"></iframe>
+
+            <p><a href="https://en.wikipedia.org/wiki/Earth%27s_rotation"
+                  target="iframe_a">Earth's rotation. wikipedia.org</a></p>
+
+            <p>Если цель объекта ссылка совпадает с именем iframe, ссылка откроется в iframe.</p>
+
+    <h1>HTML с JavaScript</h1>
+        <p>- <strong>script</strong>	Определяет клиентский сценарий<br>
+            - <strong>noscript</strong> Определяет альтернативный контент для
+            пользователей, которые не поддерживают клиентские скрипты
+        </p>
+        <p>JavaScript делает страницы HTML более динамичными и интерактивными.</p>
+        <h3>HTML первый JavaScript</h3>
+
+        <button type="button"
+        onclick="document.getElementById('demo').innerHTML = Date()">
+        Нажми на меня, чтобы отобразить дату и время</button>
+        <p id="demo"></p>
+        <h3>HTML Тег script</h3>
+        <p>Тег script используется для определения клиентского сценария
+            (JavaScript).<br>
+            Элемент script содержит сценарии или указывает на внешний файл скрипта через атрибут src.<br>
+            Чаще всего используется JavaScript - для манипуляция изображения, формы проверки, а также динамического изменения содержания.<br>
+            Чтобы выбрать элемент HTML в JavaScript, очень часто используется метод document.getElementById().<br>
+            В примере JavaScript написать "Привет JavaScript!" в нутри элемента HTML с id="demo":
+        </p>
+        <h3>Использовать JavaScript для изменения текста</h3>
+        <p>В этом примере прописано "Привет JavaScript!" в HTML элементе с id="demo_01":</p>
+
+        <p id="demo_01"></p>
+
+        <script>
+        document.getElementById("demo_01").innerHTML = "Привет JavaScript!";
+        </script>
+
+        <h2>Что может JavaScript?</h2>
+        <h3>JavaScript может изменять содержимое HTML элемента:</h3>
+
+        <button type="button" onclick="myFunction_01()">Нажмите Меня!</button>
+
+        <p id="demo_05">Это демонстрация.</p>
+
+        <script>
+        function myFunction_01() {
+            document.getElementById("demo_05").innerHTML = "Привет JavaScript!";
+            document.getElementById("demo_05").style.color = "red";
+        }
+        </script>
+        <h3>JavaScript может изменить стили HTML</h3>
+        <p id="demo_06">JavaScript может изменить стиль HTML элемента.</p>
+
+        <script>
+        function myFunction_02() {
+            document.getElementById("demo_06").style.fontSize = "35px";
+            document.getElementById("demo_06").style.color = "blue";
+            document.getElementById("demo_06").style.backgroundColor = "yellow";
+        }
+        </script>
+        <button type="button" onclick="myFunction_02()">Нажмите Меня!</button>
+
+        <h3>JavaScript может изменить атрибуты HTML</h3>
+        <script>
+        function light(sw) {
+            var gifts;
+            if (sw === 0) {
+                gifts = "pic_bulboff.gif"
+                document.getElementById("myImage").style.backgroundColor =
+                    "black";
+            }
+            else {
+                gifts = "pic_bulboff.gif"
+                document.getElementById("myImage").style.backgroundColor =
+                    "yellow";
+            }
+
+        }
+        </script>
+
+        <img id="myImage" src="gifts/pic_bulboff.gif" width="100"
+             height="180"
+             alt="bulboff">
+
+        <p>
+        <button type="button" onclick="light(1)">Свет Вкл</button>
+        <button type="button" onclick="light(0)">Свет Выкл</button>
+        </p>
+
+        <h3>HTML Тег noscript</h3>
+            <p>Тег noscript используется, чтобы предоставить альтернативный контент для
+                пользователей у которых отключены скрипты в браузере или имеют браузер, который не поддерживает клиентские скрипты:
+            </p>
+            <p>Вставка тега noscript:</p>
+
+            <p id="demo_08"></p>
+
+            <script>
+            document.getElementById("demo_08").innerHTML = "Привет JavaScript!";
+            </script>
+
+
+            <noscript>Извините, Ваш браузер не поддерживает JavaScript!</noscript>
+
+            <p>Браузер без поддержки JavaScript покажет текст, написанный внутри элемента noscript.</p>
+            <p>Определите текст "var person;" как программный код:</p>
+            <p>Пример кода: <code>var person;</code></p>
+    <h1>HTML Путь к файлу</h1>
+        <h3>Пути к HTML файлам</h3>
+            <p>Путь к файлу описывает расположение файла в структуре папок
+                  вебсайта.<br>
+            Пути к файлам используются при связывании с внешними файлами, например:<br>
+            - Веб-страницы<br>
+            - Изображения<br>
+            - Таблицы стилей<br>
+            - JavaScripts
+            </p>
+        <h3>Примеры пути к файлам:</h3>
+        <img src="imgs/img_file_path_examples.png" height="294" width="600"
+             alt="pic"/>
+        <p>Рекомендуется использовать относительные пути к файлам (если возможно).
+            При использовании относительных путей к файлам, веб-страницы не будут привязаны
+            к вашему текущему базовому URL-адрес. Все ссылки будут работать на вашем собственном
+            компьютере (localhost), а также на вашем текущем общественном домене и вашем
+            будущем публичном домене.<br>
+            Относительный путь к файлу указывает на файл относительно текущей страницы.
+        </p>
+    <h1>HTML Мета теги</h1>
+        <p>HTML элемент head> контейнер для всех головных элементов: title>, style>, meta>, link>, script>, и base>.</p>
+        <h3>HTML head</h3>
+        <p>Элемент head> представляет собой контейнер для метаданных (данных о
+            данных) и помещается между ними. Тег html> и тег body>.<br>
+            Метаданные HTML - это данные о документе HTML. Метаданные не отображаются.
+            Метаданные обычно определяют заголовок документа, набор символов, стили, сценарии и другую метаинформацию.
+        </p>
+        <h3>HTML title</h3>
+        <p>Элемент title> определяет заголовок документа и является обязательным во
+            всех HTML документах.
+        </p>
+            Элемент title:<br>
+            <ul>
+                <li>Определяет заголовок на вкладке браузера</li>
+                <li>Предоставляет заголовок для страницы когда она добавляется в
+                    избранное</li>
+                <li>Отображает заголовок страницы в результатах поиска</li>
+            </ul>
+
+        <h3>HTML style</h3>
+        <p>Элемент style используется для определения информации о стиле для одной </p>
+        <h3>HTML link</h3>
+            <p>Элемент link используется для связи с внешними таблицами стилей</p>
+
+        <h3>HTML meta</h3>
+        <p>Элемент meta используется для указания используемого набора символов, описания страницы,
+            ключевых слов, автора и других метаданных.<br>
+            Метаданные используются браузерами (как отображать контент), поисковыми системами (ключевые слова) и другими веб службами.
+        </p>
+        <h3>Настройка области просмотра</h3>
+        <p>В HTML существует метод, позволяющий веб дизайнерам взять контроль над
+            видовым окном через тег meta.<br>
+            Видовой экран - это видимая область веб страницы пользователя. Он зависит от устройства и будет меньше на мобильном телефоне, чем на экране компьютера.<br>
+            Вы должны включить следующий элемент <meta> видового экрана на всех ваших веб страницах:<br>
+            meta name="viewport" content="width=device-width, initial-scale=1.0"<br>
+            В meta элемент viewport содержит инструкции для браузера о том, как управлять размерами страницы и масштабирование.<br>
+            Часть width=device-width задает ширину страницы, соответствующую ширине экрана устройства (которая будет варьироваться в зависимости от устройства).<br>
+            Часть initial-scale=1.0 устанавливает начальный уровень масштабирования при первой загрузке страницы браузером.
+        </p>
+        <h3>HTML script</h3>
+        <p>Элемент script используется для определения клиентского Javascript.
+
+        This JavaScript пишет "Привет JavaScript!" в HTML элемент с помощью id="demo":
+        </p>
+        <p id="demo_head">Параграф</p>
+        <button type="button" onclick="myFunction_head()">Попробуйте</button>
+
+        <h3>HTML base</h3>
+        <p>Элемент base задает базовый URL адрес и базовый целевой объект для всех относительных
+            URL адресов на странице:
+        </p>
+
+    <h1>HTML Методы верстки</h1>
+
+<h2>HTML Элементы макета/ HTML Layout Elements</h2>
+    <img src="imgs/img_layout_elements.png" height="429" width="600"
+         alt="Pic.."/>
+
+
+    <h1>Методы верстки HTML</h1>
+        <p>Существует четыре различных метода для создания макетов с несколькими
+                    столбцами. У каждого способа есть свои плюсы и минусы:
+        </p>
+        <ul>
+            <li>CSS framework</li>
+            <li>CSS float property</li>
+            <li>CSS flexbox</li>
+            <li>CSS grid</li>
+        </ul>
+        <h2>CSS Frameworks</h2>
+        <p>Если вы хотите быстро создать свой макет, вы можете использовать фреймворк,
+            например W3.CSS or Bootstrap.
+        </p>
+        <h2>CSS Float макет</h2>
+        <p>Обычно целые веб макеты создаются с помощью свойства CSS float.
+            Float легко освоить - вам просто нужно запомнить, как работают свойства float и clear.
+            Недостатки: Плавающие элементы привязаны к документообороту, что может повредить гибкости.
+            Узнайте больше о float в разделе CSS <a href="https://www.w3schools.com/css/css_float.asp">Float и Clear.</a>
+        </p>
+            <h3>HTML Макет с использованием float, использущий поплавок CSS/HTML</h3>
+
+            <div class="container">
+
+            <header id="Floatlayout_h">
+               <h2>Городская Галерея</h2>
+            </header>
+            <nav>
+              <ul>
+                <li><a href="https://en.wikipedia.org/wiki/London">Лондон</a></li>
+                <li><a href="https://en.wikipedia.org/wiki/Paris">Париж</a></li>
+                <li><a href="https://en.wikipedia.org/wiki/Tokyo">Токио</a></li>
+              </ul>
+            </nav>
+
+            <article>
+                <h3>Лондон</h3>
+                <p><a href="https://en.wikipedia.org/wiki/London">Лондон</a> является столицей Англии. Это самый густонаселенный город в Соединенном Королевстве, с пригородами свыше 13 миллионов жителей.</p>
+                <p>Стоя на берегу реки Темзы, Лондон был крупным поселением на
+                  протяжении двух тысячелетий, за его историю, уходящую своего
+                  основания римлянами, которые назвали его <a href="https://en
+                    .wikipedia.org/wiki/Londinium">Londinium.</a>
+                </p>
+                <h3>Tokyo</h3>
+                <p>Токийский столичный округ (префектура) — административная единица Японии.</p>
+                <p><a href="https://en.wikipedia.org/wiki/Tokyo">Tokyo.</a> (яп. 東京 То:кё: (инф.), «Восточная столица»[4][5]) — столица Японии, её административный, финансовый, промышленный и политический центр.
+                    Крупнейшая городская экономика мира[6]. Расположен в юго-восточной части острова Хонсю, на равнине Канто в бухте
+                    Токийского залива Тихого океана.
+                </p>
+                </article >
+
+            <footer id="Floatlayout_f">Авторское право © Serge</footer>
+            </div>
+
+            <h2>CSS Flexbox макет</h2>
+            <h3>HTML Макет с использованием flexbox 1</h3>
+
+            <h3>Макет на основе адаптируемых блоков CSS/HTML</h3>
+
+            <div class="flex-container">
+            <header id="flexboxlayout_h">
+              <h2>Городская Галерея</h2>
+            </header>
+
+            <nav class="nav">
+            <ul>
+                <li><a href="https://en.wikipedia.org/wiki/London">Лондон</a></li>
+                <li><a href="https://en.wikipedia.org/wiki/Paris">Париж</a></li>
+                <li><a href="https://en.wikipedia.org/wiki/Tokyo">Токио</a></li>
+            </ul>
+            </nav>
+
+            <article class="article">
+              <h3>Лондон</h3>
+              <p>Лондон является столицей Англии. Это самый густонаселенный город в Соединенном Королевстве, с пригородами свыше 13 миллионов жителей.</p>
+              <p>Стоя на берегу реки Темзы, Лондон был крупным поселением на протяжении двух тысячелетий, за его историю, уходящую своего основания римлянами, которые назвали его Londinium.</p>
+              <p><strong>Изменить эту страницу, чтобы видеть, что происходит!</strong></p>
+            </article>
+
+            <footer id="flexboxlayout_f">Авторское право © Serge</footer>
+            </div>
+
+            <h2>CSS Grid макет</h2>
+            <p>Модуль CSS Grid предлагает сеточную систему компоновки со строками и столбцами, что упрощает
+                проектирование веб страниц без использования поплавков и позиционирования.
+            </p>
+
+        <h1>HTML Адаптивный дизайн</h1>
+            <p>Адаптивный веб дизайн - это создание веб страниц, которые хорошо смотрятся
+                на всех устройствах!<br>
+                Адаптивный веб дизайн автоматически настраивается для различных размеров экрана и видовых экранов.
+            </p>
+            <h1>HTML Отзывчивая страница</h1>
+            <p>Адаптивный веб дизайн - это использование HTML и CSS для автоматического изменения размера,
+                скрытия, сжатия или увеличения, веб сайт, чтобы он хорошо выглядел на всех устройствах
+                (настольных компьютерах, планшетах и телефонах)
+            </p>
+            <div style="background-color:#f1f1f1;padding:15px;">
+              <h3>Пять земель</h3>
+              <h3>Изменение размера окна браузера</h3>
+            </div>
+
+            <div style="overflow:auto">
+              <div class="menu">
+                <div class="menuitem">Прогулка</div>
+                <div class="menuitem">Транспорт</div>
+                <div class="menuitem">История</div>
+                <div class="menuitem">Галерея</div>
+              </div>
+
+              <div class="main">
+                <h3>Прогулка</h3>
+                <p>Прогулка от Монтероссо до Риомаджоре займет у вас около двух часов, плюс-минус час в зависимости от погодных условий и вашей физической формы.</p>
+                <img src="imgs/img_5terre.jpg" alt="5terre" style="width:100%">
+              </div>
+
+              <div class="right">
+                <h3>Что?</h3>
+                <p>Чинкве-Терре состоит из пяти деревень: Монтероссо, Вернацца, Корнилья, Манарола и Риомаджоре.</p>
+                <h3>Где?</h3>
+                <p>На северо-западном побережье Итальянской Ривьеры, к северу от города Специя.</p>
+                <h3>Цена?</h3>
+                <p>Прогулка бесплатная!</p>
+              </div>
+            </div>
+
+            <div style="background-color:#f1f1f1;text-align:center;padding:10px;margin-top:7px;font-size:12px;"> This web page is a part of a demonstration of fluid web design made by w3schools.com. Resize the browser window to see the content respond to the resizing.</div>
+
+            <h3>Настройка видового экрана</h3>
+            <p>Чтобы создать адаптивный веб сайт, добавьте следующей тег meta для всех ваших веб страниц:</p>
+            <p><code>meta name="viewport" content="width=device-width,
+                initial-scale=1.0"</code></p>
+
+            <h3>Адаптивные изображения</h3>
+            <p>Адаптивные изображения - это изображения, которые хорошо масштабируются,
+                чтобы соответствовать любому размеру браузера.
+            </p>
+            <h3>Использование свойства <strong>width</strong></h3>
+            <p>Используя свойство width Если свойство CSS width
+                установлено  на 100%, изображение будет реагировать и
+                масштабироваться вверх и вниз
+            </p>
+            <p>Если свойство CSS width установлено в процентном значении, изображение
+                будет масштабироваться вверх и вниз при изменении размера окна браузера.
+                Измените размер окна браузера, чтобы увидеть эффект.
+            </p>
+
+            <img src="imgs/img_girl_3.jpg" alt="girl" style="width:100%;">
+            <h3>Использование свойства max-width</h3>
+            <p>"max-width:100%" предотвращает увеличение изображения по сравнению с исходным размером.
+                Однако, если вы уменьшите окно браузера, изображение все равно будет уменьшаться.</p>
+            <img src="imgs/img_girl_3.jpg" alt="girl"
+                 style="max-width:100%;height:auto;">
+            <h3>Показать различные изображения в зависимости от ширины браузера</h3>
+            <p>Элемент HTML picture позволяет определять различные изображения для разных размеров окон браузера.
+                Измените размер окна браузера, чтобы увидеть, как изображение ниже меняется в зависимости от ширины:</p>
+            <picture>
+              <source srcset="imgs/img_girl_2.jpg" media="(max-width: 600px)">
+              <source srcset="imgs/workplace.jpg" media="(max-width: 1000px)">
+              <source srcset="imgs/Solar_System_size_to_scale_ru_1000px.png">
+              <img src="imgs/Solar_System_size_to_scale_ru_1000px.png" alt="Solar System"
+                   style="width:auto;">
+            </picture>
+
+            <h3>Адаптивный размер шрифта</h3>
+            <p>Размер текста можно задать с помощью единицы измерения "vw", что означает "ширина видового экрана".</p>
+            <p>Видовой экран - это размер окна браузера. 1vw = 1% от ширины видового экрана. Если видовое окно имеет ширину 50cm, то 1vw составляет 0.5cm.</p>
+            <h5 style="font-size:10vw;">Отзывчивый текст</h5>
+
+            <p style="font-size:5vw;">Измените размер окна браузера, чтобы увидеть, как масштабируется размер текста.</p>
+
+            <p style="font-size:5vw;">Использовать в "vw" единицу при измерении текст. 10vw установит размер до 10% от ширины видового экрана.</p>
+
+            <p>Видовой экран - это размер окна браузера. 1vw = 1% от ширины видового экрана. Если видовой экран имеет ширину 50cm, то 1vw составляет 0,5cm.</p>
+            <h3>HTML Отзывчивый @media запрос</h3>
+                <p>Помимо изменения размера текста и изображений, также часто используются медиа запросы на адаптивных веб страницах.
+                    С помощью медиа запросов вы можете определить совершенно разные стили для разных размеров браузера.
+                    Например: измените размер окна браузера, чтобы увидеть, что три элемента div ниже будут отображаться
+                    горизонтально на больших экранах и вертикально сложены на маленьких
+                    экранах:
+                </p>
+
+
+            <h3>Адаптивная веб страница - полный пример</h3>
+            <p>Адаптивная веб страница должна хорошо смотреться на больших экранах настольных
+                компьютеров и на небольших мобильных телефонах.</p>
+            <h2>HTML Отзывчивый @media запрос</h2>
+
+            <div style="background-color:#e5e5e5;padding:15px;text-align:center;">
+              <h3>Приет мир</h3>
+            </div>
+
+            <div style="overflow:auto">
+              <div class="menu">
+                <a href="#">Ссылка 1</a>
+                <a href="#">Ссылка 2</a>
+                <a href="#">Ссылка 3</a>
+                <a href="#">Ссылка 4</a>
+              </div>
+
+              <div class="main">
+                <h3>Главная</h3>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+                    euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+              </div>
+
+              <div class="right">
+                <h3>О Нас</h3>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+              </div>
+            </div>
+
+
+            <div    style="background-color:#e5e5e5;text-align:center;padding:10px;margin-top:7px;">© Serge</div>
+    <h1>HTML Компьютерный код</h1>
+        <p>HTML содержит несколько элементов для определения пользовательского ввода и компьютерного кода.</p>
+        <p><strong>kbd</strong> ввод c клавиатуры</p>
+        <p>Сохраните документ, нажав <kbd>Ctrl + S</kbd></p>
+        <p><strong>samp</strong> для вывода программы</p>
+        <p>Если вы введете неверное значение, программа вернет его обратно<samp>
+            Error!</samp></p>
+        <p><strong>code</strong> для компьютерного кода</p>
+        <code>
+            x = 5;<br>
+            y = 6;<br>
+            z = x + y;
+        </code>
+        <p><strong>var</strong> для переменных</p>
+        <p>Эйнштейн писал: <var>E</var> = <var>mc</var><sup>2</sup>.</p>
+
+
+    <h1>HTML5 Семантика</h1>
+        <p>Семантика - это изучение значений слов и фраз на языке.
+            Семантические элементы = элементы со смыслом</p>
+        <p>Семантический элемент четко описывает его значение как для браузера, так и
+            для разработчика.<br>
+            Примеры несемантических элементов: <strong>div и span</strong> - Ничего не
+            говорито егосодержании.<br>
+            Примеры семантических элементов: <strong>form, table и article</strong> -
+            Четкоопределяет его содержание.</p>
+
+            <img src="imgs/img_new _semantic_elements.png" height="357" width="600"
+            alt="img_new _semantic_elements.png"/>
+        <h2>Элемент section HTML5</h2>
+            <p>Элемент section определяет раздел в документе.
+                Согласно документации HTML5 W3C: "section - это тематическая группа
+                контента, обычно с заголовком."<br>
+                Домашняя страница обычно разделяется на разделы для введения, содержания и контактной информации.</p>
+            <section>
+                <h4>WWF</h4>
+                <p>Всемирный Фонд природы (WWF) - международная организация, занимающаяся вопросами сохранения, исследования и восстановления окружающей среды, ранее называвшаяся Всемирным Фондом дикой природы. WWF был основан в 1961 году.</p>
+            </section>
+
+            <section>
+                <h3>WWF Панда символ</h3>
+                <p>Панда стала символом WWF. Известный логотип панды WWF произошел от панды по имени Чи Чи, которая была перенесена из Пекинского зоопарка в Лондонский зоопарк в том же году создания WWF.</p>
+            </section>
+        <h2>Элемент article HTML5</h2>
+                <p>Элемент article задает независимое, автономное содержимое.<br>
+                    Статья должна иметь смысл сама по себе и ее можно читать независимо
+                    от остальной части веб-сайта.<br>
+                    Примеры того, где можно использовать элемент article:<br>
+                </p>
+                    <ul>
+                        <li>Сообщения форумов</li>
+                        <li>Блог</li>
+                        <li>Газетная статья</li>
+                    </ul>
+            <article>
+              <h4>Что делает WWF?</h4>
+              <p>Миссия WWF - остановить деградацию естественной среды нашей планеты,
+             построить будущее, в котором люди заживут в гармонии с природой.</p>
+            </article>
+        <p>Элемент article задает независимое, автономное содержимое.<br>
+
+        Элемент section определяет раздел в документе.</p>
+
+    <h2>Элемент header HTML5</h2>
+        <p>Элемент header задает заголовок документа или раздела.
+            Элемент header должен использоваться в качестве контейнера для вводного содержимого.
+            Можно использовать несколько элементов header в одном документе.
+            В следующем примере определяется заголовок статьи:
+        </p>
+        <article>
+          <header>
+            <h3>Что делает WWF?</h3>
+            <p>Миссия WWF:</p>
+          </header>
+          <p>Миссия WWF - остановить деградацию естественной среды нашей планеты ,
+          постройть будущее, в котором люди будут жить в гармонии с природой.</p>
+        </article>
+
+    <h2>Элемент footer HTML5</h2>
+        <p>Элемент footer задает нижний колонтитул для документа или раздела.<br>
+            Элемент footer должен содержать информацию о содержащем его элементе.<br>
+            Нижний колонтитул обычно содержит автор документа, информацию об авторских
+            правах, ссылки на правила пользования, контактная информация и т. д.<br>
+            Можно использовать несколько элементов footer в одном документе.</p>
+        <footer>
+          <p>Автор: Serge</p>
+          <p>Контактная информация: <a href="mailto:my_email@gmail.com">
+          my_email@gmail.com</a>.</p>
+        </footer>
+
+    <h2>Элемент nav HTML5</h2>
+        <p>Элемент nav определяет набор навигационных ссылок.</p>
+        <p>Обратите внимание, что не все ссылки документа должны быть внутри элемента nav.
+            Элемент nav предназначен только для основного блока навигационных ссылок.</p>
+        <nav>
+          <a href="https://en.wikipedia.org/wiki/HTML">HTML</a> |
+          <a href="https://en.wikipedia.org/wiki/CSS">CSS</a> |
+          <a href="https://en.wikipedia.org/wiki/JavaScript">JavaScript</a> |
+          <a href="https://en.wikipedia.org/wiki/JQuery">jQuery</a>
+        </nav><br><br>
+
+
+    <h2>Элемент aside HTML5</h2>
+        <p>Элемент aside определяет некоторое содержимое aside из контента, в который он помещен (например, боковая панель).
+            Содержимое aside должно быть связано с окружающим контентом.
+        </p>
+        <p>Моя семья, посетили центр Epcot этим летом.</p>
+
+        <aside>
+          <h4>Центр Epcot</h4>
+          <p>Epcot - это тематический парк в Диснейуорлде, штат Флорида.</p>
+        </aside>
+    <h2>Элементы figure и figcaption HTML5</h2>
+        <p>Цель подписи к рисунку - добавить визуальное объяснение к изображению.<br>
+            В HTML5 изображение и заголовок можно сгруппировать в элементе figure:
+        </p>
+        <figure>
+            <img src="imgs/img_mountain.jpg" height="228" width="304"
+            alt="img_mountain"/>
+            <figcaption>Рис. 1. - Прекестулен, Норвегия.</figcaption>
+        </figure>
+        <p>Элемент img определяет изображение, элемент figcaption определяет заголовок.</p>
+        <p>Почему семантические элементы?<br>
+            В HTML4 разработчики использовали собственные имена id/class для стилизации элементов:
+            <strong>header, top, bottom, footer, menu, navigation, main,
+            container, content, article, sidebar, topnav и т. д.</strong><br>
+            Это сделало невозможным для поисковых систем определить правильный
+            контент веб-страницы.<br>
+            Новые элементы HTML5 (<strong>header footer nav section article</strong>),
+            станет легче выполнить.</p>
+
+    <h1>HTML5 Синтаксис</h1>
+        <p>Последовательный, чистый и аккуратный HTML код облегчает другим чтение и понимание вашего кода.</p>
+        <h4>Используйте имена элементов в нижнем регистре<br></h4>
+        <p>HTML позволяет смешивать прописные и строчные буквы в именах
+            элементов.<br>
+            Однако мы рекомендуем использовать имена элементов в нижнем регистре,
+            поскольку:<br>
+            - Смешивание прописных и строчных имен выглядит плохо<br>
+            - Разработчики обычно используют имена в нижнем регистре<br>
+            - Нижний регистр выглядит чище<br>
+            - Строчные буквы писать проще
+        </p>
+    <h4>Закрывайте все HTML элементы</h4>
+    <h4>Используйте имена атрибутов в нижнем регистре</h4>
+    <h4>Всегда указывайте значения атрибутов<br></h4>
+        <p>HTML допускает значения атрибутов без кавычек.<br>
+        Тем не менее, мы рекомендуем заключение в кавычки значений атрибутов,
+        потому что:<br>
+        - Разработчики обычно цитируют значения атрибутов<br>
+        - Приведенные в кавычкахзначения легче читать<br>
+            - Вы должны использовать кавычки, если значение содержит пробелы</p>
+    <h4>Всегда указывайте <strong>alt, width и height</strong> для
+        изображений.<br></h4>
+        <p>Всегда указывайте атрибут alt для изображений. Этот атрибут важен, если
+        изображение по какой-то причине не может быть отображено.<br>
+        Кроме того, всегда определяйте width и height для изображений.
+        Это уменьшает мерцание, поскольку браузер может зарезервировать место для
+            изображения перед загрузкой.</p>
+    <h4>HTML допускает пробелы вокруг знаков равенства. Но без пробелов легче
+        читать и лучше группировать объекты вместе.</h4>
+    <h4>Избегайте длинных строк кода</h4>
+    <h4>Пустые строки и отступы<br></h4>
+        <p>Не добавляйте пустые строки, пробелы или отступы без причины.<br>
+        Для удобства чтения добавьте пустые строки для разделения больших или
+        логических блоков кода.<br>
+        Для удобства чтения добавьте два интервала отступа. Не используйте
+            клавишу tab.</p>
+    <h4>Никогда не пропускайте элемент title</h4>
+        <h4>Элемент title необходим в HTML.<br></h4>
+        <p>Содержание заголовка страницы очень важно для поисковой оптимизации
+        <strong>(SEO)</strong>!
+        Заголовок страницы используется алгоритмами поисковой системы для
+            определения порядка размещения страниц в результатах поиска.</p>
+        <p>Элемент title:<br>
+        <p>- определяет заголовок на панели инструментов браузера<br>
+        - предоставляет заголовок для страницы, когда она добавляется в
+        избранное<br>
+        - отображение заголовка страницы в результатах поиска</p>
+
+    <h4>Пропуск <strong>html и body</strong>?<br></h4>
+        <p>HTML страница будет проверяться без использования тегов html и
+              body:</p>
+        <p>Однако мы рекомендуем всегда добавлять теги html и body!<br>
+            Элемент html - это корень документа, и рекомендуемое место для
+            указания языка страницы. Объявление языка страницы важно для
+            специальных приложений (программ чтения с экрана) и поисковых
+            систем.<br>
+            Пропуск body может привести к ошибкам в старых браузерах.<br>
+            Пропуск html и body может также привести к сбою программного обеспечения DOM и XML.</p>
+    <h4>HTML тег <strong>head</strong> также может быть опущен.<br></h4>
+        <p>Тем не менее, мы рекомендуем использовать тег head.</p>
+    <h4><strong>Метаданные</strong></h4>
+        <p>Чтобы обеспечить правильную интерпретацию и
+        правильную индексацию поисковых систем, как язык, так и кодировка символов должны
+        быть определены как можно раньше в HTML документе:</p>
+        <h4>Настройка видового экрана<br></h4>
+            <p>Видовой экран - это видимая область веб страницы пользователя.
+                Она меняется в зависимости от устройства - на мобильном телефоне она будет
+                меньше, чем на экране компьютера.<br>Вы должны включить следующей элемент
+                meta>на всех ваших веб страницах:
+                <br><code>meta name="viewport" content="width=device-width, initial-scale=1.0"</code></p>
+    <h4>HTML Комментарии</h4>
+        <p>Короткие комментарии должны быть написаны на одной строке, например:</p>
+        <code> &#8249!-- Это комментарий --&#8250 </code>
+        <p>Комментарии, которые охватывают более одной строки, должны быть написаны
+            следующим образом:<br></p>
+        <code> &#8249!--<br>
+              Это длинный пример комментария. Это длинный пример
+            комментария.<br>
+              Это длинный пример комментария. Это длинный пример комментария.<br>
+            --&#8250
+        </code>
+    <h4>Использование каскадной таблицы стилей</h4>
+        <p>Используйте простой синтаксис для связывания с таблицами стилей (атрибут type не является необходимым):</p>
+        <code> &#8249link rel="stylesheet" href="styles.css"&#8250 </code>
+            <img src="imgs/img_long_ruls_CSS.png" height="359" width="700"/>
+
+    <h4>Загрузка JavaScript в HTML</h4>
+    <p>Использование "неопрятного" HTML кода может привести к ошибкам
+        JavaScript.<br>
+        Эти два оператора JavaScript будет производить различные результаты:</p>
+        <img src="imgs/img_sintaxis_java_script.png" height="265" width="1000"
+        alt="sintaxis"/>
+    <h4>Используйте имена файлов в нижнем регистре</h4>
+        <p>Некоторые веб серверы (Apache, Unix) чувствительны к регистру имен файлов:
+            "london.jpg" не может быть доступен как "London.jpg".<br>
+            Другие веб серверы (Microsoft, IIS) не чувствительны к регистру символов:
+            "london.jpg" можно получить доступ как "London.jpg".<br>
+            Если вы используете сочетание верхнего и нижнего регистра, вы должны
+            знать об этом.<br>
+            Если вы перейдете с сервера, не чувствительного к регистру, на сервер,
+            чувствительный к регистру, даже небольшие ошибки разрушат вашу сеть!<br>
+            Чтобы избежать этих проблем, всегда используйте имена файлов в нижнем регистре!</p>
+
+    <h4>Расширение файла</h4>
+        <p>HTML файлы должны иметь расширение <strong>.html или .htm.</strong><br>
+            CSS файлы должны иметь расширение <strong>.css.</strong><br>
+            JavaScript файлы должны иметь расширение <strong>.js.</strong></p>
+    <h4>Различия между .htm и .html?</h4>
+    <p>Между ними нет никакой разницы расширения файлов .htm и html!<br>
+        И то, и другое будет рассматриваться как HTML любым веб браузером и веб сервером.</p>
+
+    <h4>Имена файлов по умолчанию</h4>
+    <p>Если URL адрес не указывает имя файла в конце (например:
+        "https://schoolsw3.com/"), сервер просто добавляет имя файла по
+        умолчанию, например "index.html", "index.htm", "default.html", или
+        "default.htm".<br>
+        Если ваш сервер настроен только на "index.html" в качестве имени файла по
+        умолчанию ваш файл должен быть назван "index.html", а не "default.html."<br>
+        Однако серверы могут быть сконфигурированы с несколькими именами файлов
+        по умолчанию, и обычно вы можете настроить столько имен файлов по
+        умолчанию, сколько потребуется.<br></p>
+
+    <h1>HTML Сущность символов</h1>
+        <p>Зарезервированные символы в HTML должны быть заменены символьными сущностями.</p>
+        <p>Некоторые символы зарезервированы в HTML.<br>
+            Если вы используете знаки меньше (<) или больше (>) в своем тексте,
+            браузер может смешать их с тегами.<br>
+            Символьные сущности используются для отображения зарезервированных
+            символов в HTML.<br>
+            Символьная сущность выглядит следующим образом:</p>
+            <img src="imgs/img_character_entity.png" height="491" width="700"
+            alt="character entity"/>
+        <h3>Неразрывный пробел</h3>
+            <p>Общий характер объекта, используемого в HTML неразрывный пробел:
+                <img src="imgs/img_non_breaking_space.png" height="58" width="162"
+                alt="non_breaking_space"/></p>
+                10&nbsp;km/h, 10&nbsp;PM, $&nbsp;100.
+        <p>Еще одно распространенное использование неразрывного пространства - это
+            предотвращение обрезать браузерами пробел на HTML страницах.<br>
+            Если вы напишете 10 пробелов в тексте, браузер удалит 9 из них.
+            Чтобы добавить реальные пробелы в текст, вы можете использовать
+            <img src="imgs/img_non_breaking_space.png" height="58" width="162"
+                alt="non_breaking_space"/>  символьную сущность.</p>
+            <img src="imgs/img_characters_entities.png" height="924" width="700"
+            alt="characters_entities"/>
+        <h3>Диакритические знаки</h3>
+        <p>Диакритический знак - это "символ" добавленный в строку.<br>
+            Некоторые диакритические знаки, как степень (  ̀) и острый (  ́)
+            называются акцентами.<br>
+            Диакритические знаки могут появляться как над буквой, так и под ней,
+            внутри буквы и между двумя буквами.<br>
+            Диакритические знаки могут использоваться в сочетании с буквенно-цифровыми символами
+            для получения символа, отсутствующего в наборе символов (кодировке), на
+            используемой странице.<br>
+            Вот несколько примеров:</p>
+            <img src="imgs/img_diacritical_marks.png" height="456" width="700"
+            alt="diacritical_marks"/>
+
+    <h1>HTML Символы</h1>
+        <p>Символы, отсутствующие на клавиатуре, также могут быть заменены сущностями.</p>
+        <p>Многие математические, технические и валютные символы отсутствуют на
+            обычной клавиатуре.<br>
+            Чтобы добавить такие символы на HTML страницу, можно использовать имя
+            сущности HTML.<br>
+            Если имя сущности не существует, можно использовать число сущности, десятичную или шестнадцатеричную ссылку.</p>
+
+            <img src="imgs/img_character_entities.png" height="1000" width="612"
+                 alt="characters_entities"/>
+
+<h1>HTML Эмодзи</h1>
+    <p>Эмодзи - это кодировки из набора символов UTF-8: 😄 😍 💗</p>
+    <p>Что такое эмодзи?<br>
+        Эмодзи выглядят как изображения или значки, но это не так.<br>
+        Это буквы (кодировки) из алфавита UTF-8 (Юникод).<br>
+        UTF-8 охватывает почти все кодировки и символы в мире.</p>
+    <p>Атрибут кодировки HTML<br>
+        Для корректного отображения HTML страницы веб браузер должен знать набор символов,
+        используемый на этой странице.<br>
+        Это указано в документе тегом <strong>meta</strong>:</p>
+        <code>&lt;meta charset="UTF-8"&gt;</code>
+        <p>Если он не указан, то UTF-8 является набором символов по умолчанию в HTML.</p>
+        <p>UTF-8 кодировки<br>
+        Многие кодировки UTF-8 не могут быть набраны на клавиатуре, но они всегда
+            могут быть отображены с помощью чисел (называемых числами
+            сущностей):<br>
+            - A является 65<br>
+            - B является 66<br>
+            - C является 67</p>
+    <h4>HTML Кодировка UTF-8 эмодзи</h4>
+
+    <p>Я буду показывать A B C</p>
+    <p>Я буду показывать &#65; &#66; &#67;</p>
+    <p>Объяснение примера
+    Элемент <code style="color: red">&lt;meta charset="UTF-8"&gt;</code>
+        определяет набор
+        кодировки.<br>
+        Символы A, B и C обозначаются цифрами 65, 66 и 67.<br>
+        Чтобы браузер понял, что вы показываете символ, вы должны начать с номера сущности с &# и закончить его с ; (точка с запятой).</p>
+    <p>Кодировки эмодзи
+    Эмодзи - это также кодировки из алфавита UTF-8:<br>
+    😄 является 128516<br>
+    😍 является 128525<br>
+    💗 является 128151</p>
+    <p>Поскольку эмодзи - это символы, их можно копировать, отображать и изменять размер
+        точно так же, как и любой другой символ в HTML.</p>
+    <p style="font-size:48px">
+    &#128512; &#128510; &#128516; &#128525; &#128151; &#128152; &#128139;
+        &#128111; &#128521; &#129504; &#127863; &#128507; &#128508; &#128509;
+        &#128514; &#128511; &#129412;
+    </p>
+    <h3>Правило CSS @charset</h3>
+    <p>Вы можете использовать CSS правило @charset для указания кодировки символов,
+        используемой в таблице стилей:</p>
+        <code>@charset "UTF-8";</code>
+
+<h1>HTML Кодировка</h1>
+<p>Чтобы правильно отобразить HTML страницу, веб браузер должен знать, какой набор символов использовать.</p>
+<p>Что такое кодировка символов?<br>
+    ASCII была первая <strong>стандартная кодировка символов</strong> (также
+        называется набор символов).
+    ASCII определенны 128 различных буквенно-цифровых символов, которые могут быть использованы в интернете:
+    числа от (0-9), английские буквы (A-Z), и некоторые специальные символы,
+    такие как ! $ + - ( ) @ < > .<br>
+    ANSI (Windows-1252) был оригинальным Windows набор символов, с поддержкой
+    256 различных кодов символов.<br>
+    ISO-8859-1 была кодировка по умолчанию для HTML 4. Этот набор символов
+    тоже поддерживается 256 различных кодов символов.<br>
+    Потому что ANSI и ISO-8859-1 были настолько ограничены, что HTML 4 также поддерживает UTF-8.</p>
+<p><strong>UTF-8 (Юникод)</strong>охватывает практически все знаки и символы в мире.</p>
+<p>Кодировка по умолчанию для HTML5 является UTF-8.</p>
+<h3>HTML Атрибут charset</h3>
+<p>Для корректного отображения HTML страницы веб браузер должен знать набор символов, используемый на этой странице.</p>
+    <code>&lt;meta charset="UTF-8"&gt;</code>
+
+<h1>HTML URL Кодировка</h1>
+    <p>URL адрес является еще одним словом для веб адреса.<br>
+        URL адрес может состоять из слов (schoolsw3.com), или интернет-протокол
+        (IP) адрес (31.31.196.133).<br>
+        Большинство людей вводят имя при серфинге, т.к. имена легче запоминаются, чем цифры.</p>
+    <h3>URL - унифицированный указатель ресурса</h3>
+    <p>Веб-браузеры запрашивают страницы с веб-сервера, используя URL-адрес.<br>
+        Унифицированный указатель ресурсов (URL) использует адрес документа (или
+        другие данные) в сети.<br>
+        Веб адрес, например https://www.schoolsw3.com/html/index.php следующие правила синтаксиса:</p>
+    <p><code>scheme://prefix.domain:port/path/filename</code></p>
+    <p>Объяснение:<br>
+        - scheme - определяет тип интернет услуги (чаще всего это http или
+        https)<br>
+        - prefix - определяет префикс домена (по умолчанию для http является www)<br>
+        - domain - определяет в интернете доменное имя например:( schoolsw3.com)<br>
+        - port - определяет номер порта на хосте (по умолчанию для http является 80)<br>
+        - path - определяет путь на сервере (если исключен: корневой каталог сайта)<br>
+        - filename - определяет имя документа или ресурса</p>
+    <h3>Общии URL Схемы</h3>
+    <table style="width:100%">
+      <caption>В таблице ниже перечислены некоторые общие схемы:</caption>
+      <tr>
+        <th>Схема</th>
+        <th>Расшифровка для</th>
+        <th>Применение для</th>
+      </tr>
+      <tr>
+        <td>http</td>
+        <td>Протокол передачи гипертекста</td>
+        <td>Общих веб страниц. Не зашифрован</td>
+      </tr>
+      <tr>
+        <td>https</td>
+        <td>Защищенный протокол передачи гипертекста</td>
+        <td>Безопасных веб страниц. Зашифрованы</td>
+      </tr>
+      <tr>
+        <td>ftp</td>
+        <td>Протокол передачи файлов</td>
+        <td>Скачивания или загрузки файлов</td>
+      </tr>
+      <tr>
+        <td>file</td>
+        <td></td>
+        <td>Файл на вашем компьютере</td>
+      </tr>
+    </table>
+    <h3>URL кодирование</h3>
+    <p>URL адреса могут быть отправлены только через интернет ASCII символьный
+        набор. Если URL адрес содержит символы, не входящие в набор ASCII, URL
+        адрес должен быть преобразован.<br>
+        Адрес кодирования не ASCII символы преобразуются в формат, который может
+        быть передан через интернет.<br>
+        Кодирование URL заменяет не ASCII символы с "%", за которым следуют
+        шестнадцатеричные цифры.<br>
+        URL-адрес не может содержать пробелы. Кодировки URL-адреса, как правило,
+        заменяет пространство со знаком плюс (+), или %20.</p>
+
+<h1>HTML и XHTML</h1>
+<p>XHTML - это более строгая, более основанная на XML версия HTML.</p>
+<p>Что такое XHTML?</p>
+<p>- XHTML означает EXtensible HyperText Markup Language<br>
+- XHTML - это более строгая, более основанная на XML версия HTML<br>
+- XHTML - это HTML, определенный как XML приложение<br>
+- XHTML поддерживается всеми основными браузерами</p>
+<p>Почему XHTML?</p>
+<p>XML - это язык разметки, где все документы должны быть правильно размечены
+    (быть "хорошо сформированны").<br>
+    XHTML был разработан для того, чтобы сделать HTML более расширяемым и гибким
+    для работы с другими форматами данных (такими как XML). Кроме того, браузеры
+    игнорируют ошибки в HTML страницах и пытаются отобразить веб сайт, даже если
+    он имеет некоторые ошибки в разметке. Таким образом, XHTML поставляется с гораздо
+    более строгой обработкой ошибок</p>
+<h3>Наиболее важные отличия от HTML</h3>
+<p>- !DOCTYPE является обязательным<br>
+- Атрибут xmlns в html является обязательным<br>
+- html, head, title, и body являются обязательными<br>
+- Элементы должны быть всегда правильно вложенные<br>
+- Элементы должны быть всегда закрыты<br>
+- Элементы должны быть всегда в нижнем регистре<br>
+- Имена атрибутов всегда должны быть в нижнем регистре<br>
+- Значения атрибутов всегда должны быть цитируемые<br>
+- Минимизация атрибутов запрещена</p>
+    <img src="imgs/img_XHTML_tags.png" height="457" width="700"
+    alt="XHTML_tags"/></body>
+
+</html>
